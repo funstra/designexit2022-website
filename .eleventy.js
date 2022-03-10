@@ -9,6 +9,8 @@ const INPUT_DIR = "src";
 const PATH_PREFIX = "/";
 /** @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig */
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget("assets");
+  eleventyConfig.addPassthroughCopy("assets");
   // Disable whitespace-as-code-indicator, which breaks a lot of markup
 
   // Read Vite's manifest.json, and add script tags for the entry files

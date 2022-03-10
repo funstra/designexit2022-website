@@ -1,19 +1,41 @@
-<header w:flex="~" w:bg="red-50">
-    <div class="logo">LOGO</div>
-    <nav w:m="l-auto">
-        <ol  w:flex="~" w:grid="gap-2" >
-            <li>
-                <a href="">home</a>
-            </li>
-            <li>
-                <a href="">Vad är Designexit</a>
-            </li>
-            <li>
-                <a href="">Vilka är vi</a>
-            </li>
-            <li>
-                <a href="">Vernisage</a>
-            </li>
-        </ol>
-    </nav>
+<header w:flex="~" w:align="items-center">
+  <div class="logo">LOGO</div>
+  <nav w:m="l-auto" id="site-nav">
+    <button
+      onclick="
+    const parent = event.target.parentElement
+    const state = parent.dataset.menuState
+    
+    state ? parent.dataset.menuState = '' : parent.dataset.menuState = 'open'
+    "
+    >
+      <svg
+        width="2rem"
+        height="2rem"
+        viewBox="0 0 32 16"
+        preservAspectRatio="xMidYMid"
+        style="pointer-events: none"
+      >
+        <g stroke="black" stroke-width="2">
+          <line x1="0" x2="100%" y1="0" y2="0"/>
+          <line x1="0" x2="100%" y1="8" y2="8"/>
+          <line x1="0" x2="100%" y1="16" y2="16"/>
+        </g>
+      </svg>
+    </button>
+    <ol>
+      <li>
+        <a href="">Start</a>
+      </li>
+      <li>
+        <a href="">Vad är Designexit</a>
+      </li>
+      <li>
+        <a href="">Vilka är vi</a>
+      </li>
+      <li>
+        <a href="">Vernisage</a>
+      </li>
+    </ol>
+  </nav>
 </header>

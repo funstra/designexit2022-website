@@ -8,15 +8,10 @@
   }
   &.grow {
     > * {
+      flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 100%;
       @apply p-sm;
-    }
-  }
-  &.mandatory {
-    scroll-snap-type: y proximity;
-    > * {
-      scroll-snap-align: start;
     }
   }
 }

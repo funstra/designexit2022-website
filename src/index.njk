@@ -1,47 +1,107 @@
 ---
-layout: layouts/base
+layout: layouts/scroll-journey
 title: home
 ---
 
-<section w:grid="~ cols-2" w:p="l" class="sm:(bg-red-500 text-blue-900) md:bg-blue-200"  >
+<section class="max-w-[60rem] mx-auto flex flex-col justify-center gap-s p-s">
+  <div class="flex flex-col md:flex-row gap-s">
+    <div class="basis-[40%]">
+      <h2>hello</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
+        doloremque neque voluptatem explicabo assumenda temporibus?
+      </p>
+    </div>
+    <div class="flex-shrink-0 h-[15rem] flex-grow bg-accent"></div>
+  </div>
+  <div class="flex flex-col md:flex-row gap-s">
+    <div class="basis-[40%]">
+      <h2>hello</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
+        doloremque neque voluptatem explicabo assumenda temporibus?
+      </p>
+    </div>
+    <img
+      class="flex-shrink-0 h-[15rem] flex-grow object-cover"
+      src="/assets/bridge.1.jpg"
+      alt=""
+    />
+  </div>
+</section>
+<section>
+  <a w:grid="row-start-1" href="" w:text="xs middle"
+    ><span>&larr;</span> tillbaka</a
+  >
   <svg
-    width="256px"
-    height="256px"
+    width="100%"
     viewBox="0 0 1024 1024"
     preservAspectRatio="xMidYMid"
+    w:border="accent 2"
   >
-    <circle cx="50%" cy="50%" r="256"/>
+    <circle cx="50%" cy="50%" r="256" />
   </svg>
-  <div class="socials">
+
+  <div>
+    <h2>Förnamn Efternamn</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
+      veritatis commodi similique perferendis recusandae earum maxime,
+      temporibus tempora consequatur sint repellat labore veniam aut iusto
+      laboriosam facere est qui illo libero dolorem sequi aspernatur? Numquam
+      incidunt dolores unde sint nisi tempore consequatur ex asperiores minima
+      quos, quae impedit officiis quo?
+    </p>
+  </div>
+  <div class="alster" w:grid="~ cols-2 row-start-3 col-start-2">
+    <div
+      class="placeholder"
+      w:bg="accent"
+      w:p="s"
+      w:border="rounded-[50%]"
+      style="aspect-ratio: 1/1"
+    ></div>
+    <div
+      class="placeholder"
+      w:bg="accent"
+      w:p="s"
+      w:border="rounded-[50%]"
+      style="aspect-ratio: 1/1"
+    ></div>
+    <div
+      class="placeholder"
+      w:bg="accent"
+      w:p="s"
+      w:border="rounded-[50%]"
+      style="aspect-ratio: 1/1"
+    ></div>
+    <div
+      class="placeholder"
+      w:bg="accent"
+      w:p="s"
+      w:border="rounded-[50%]"
+      style="aspect-ratio: 1/1"
+    ></div>
+  </div>
+  <div class="socials" w:grid="row-start-3">
     <h3>Se mer av Namn</h3>
-    <ul>
-      <li>
+    <ul w:flex="~" w:grid="gap-2xs">
+      <li w:w="max-content">
         <a href="">facebook</a>
       </li>
-      <li>
+      <li w:w="max-content">
         <a href="">instagram</a>
       </li>
-      <li>
+      <li w:w="max-content">
         <a href="">linkedin</a>
       </li>
     </ul>
+    <a href="">hemsida</a>
   </div>
-  <h2 w:grid="row-start-1 col-start-2">Förnamn Efternamn</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
-    veritatis commodi similique perferendis recusandae earum maxime, temporibus
-    tempora consequatur sint repellat labore veniam aut iusto laboriosam facere
-    est qui illo libero dolorem sequi aspernatur? Numquam incidunt dolores unde
-    sint nisi tempore consequatur ex asperiores minima quos, quae impedit
-    officiis quo?
-  </p>
-  <div class="alster">
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-  </div>
+  <nav w:m="t-l" w:flex="~" w:justify="between">
+    <a href=""><span>&larr;</span> föregående</a
+    ><a href="">nästa <span>&rarr;</span></a>
+  </nav>
 </section>
-<section></section>
 <section></section>
 <section></section>

@@ -1,11 +1,26 @@
 // @ts-check - enable TS check for js file
-import { defineConfig } from "windicss/helpers";
+import plugin from "windicss/plugin";
 
-export default defineConfig({
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `hsl(var(${variable}))`;
+    }
+    return `hsl(var(${variable}) / ${opacityValue})`;
+  };
+}
+
+/** @type {import("vite-plugin-windicss").WindiCssOptions} */
+export default {
   attributify: {
     prefix: "w:",
   },
   theme: {
+    colors: {
+      primary: withOpacityValue("--primary"),
+      accent: withOpacityValue("--accent"),
+      ternary: withOpacityValue("--ternary"),
+    },
     screens: {
       sm: "640px",
       md: "960px",
@@ -17,7 +32,7 @@ export default defineConfig({
       xs: "var(--step--1)",
       s: "var(--step-1)",
       l: "var(--step-2)",
-      "2xl": "var(--step-3)",
+      xl: "var(--step-3)",
     },
     spacing: {
       "2xs": "var(--space-2xs)",
@@ -28,4 +43,4 @@ export default defineConfig({
       "2xl": "var(--space-2xl)",
     },
   },
-});
+};

@@ -1,0 +1,42 @@
+#site-nav {
+  display: flex;
+  flex-direction: column;
+  > button {
+    align-self: flex-end;
+  }
+  > ol {
+    flex-direction: column;
+    display: none;
+    @apply mb-auto;
+    a {
+      @apply text-xl;
+    }
+  }
+  &[data-menu-state="open"] {
+    @apply p-2xs;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+    @apply bg-primary;
+    > ol {
+      animation-name: fade;
+      animation-duration: 0.125s;
+      animation-fill-mode: forwards;
+      display: flex;
+      gap: var(--space-3xs);
+    }
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    gap: var(--space-xs);
+  }
+}

@@ -11,7 +11,6 @@
     "concurrently": "^6.0.0",
     "html-minifier-terser": "7.0.0-alpha.1",
     "postcss-nested": "^5.0.6",
-    "sass": "^1.49.9",
     "vite": "2.8.0",
     "vite-plugin-windicss": "^1.8.3",
     "windicss": "3.5.1"
@@ -19,7 +18,7 @@
   "scripts": {
     "dev": "concurrently npm:dev:*",
     "dev:eleventy": "eleventy --serve",
-    "dev:vite": "vite",
+    "dev:vite": "vite --host",
     "build": "npm run build:vite && npm run build:eleventy",
     "build:eleventy": "NODE_ENV=production eleventy",
     "build:vite": "NODE_ENV=production vite build",
