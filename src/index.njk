@@ -3,6 +3,42 @@ layout: layouts/scroll-journey
 title: home
 ---
 
+{% import 'macros/triangle.njk' as tri %}
+
+<section id="section-start">
+  <svg
+    class="tri"
+    w:h="max-[30rem]"
+    viewBox="0 0 1000 866"
+    preservAspectRatio="xMidYMid"
+  >
+    {{ tri.right(8) }}
+  </svg>
+  <header w:grid="row-start-2 col-start-1">
+    <div class="logo">
+      <h1>
+        designexit <br />
+        <span>2022</span>
+      </h1>
+    </div>
+    <p>Vernisage <time datetime="2022-06-01">1 Juni 2022</time></p>
+  </header>
+  <div w:grid="row-start-2 col-start-2" class="student-grid">
+    {% set noffset = 2 %}
+    {% set row = 50 %}
+    {% for i in range(0,12) %}
+    <div
+    {% if (i%4) == 0 %}
+    {% set row = (row) + noffset*50 %}
+    {% endif %}
+    style="--offset:{{(i*50 - row) * -1}}%;--odd:{{(i % 2) * 180}}deg;--row:{{row}}"
+  
+      w:transform="~ rotate-[var(--odd)] translate-x-[var(--offset)]"
+      class="p-s bg-accent"
+    ></div>
+    {% endfor %}
+  </div>
+</section>
 <section class="max-w-[60rem] mx-auto flex flex-col justify-center gap-s p-s">
   <div class="flex flex-col md:flex-row gap-s">
     <div class="basis-[40%]">
@@ -103,5 +139,4 @@ title: home
     ><a href="">nästa <span>&rarr;</span></a>
   </nav>
 </section>
-<section></section>
 <section></section>

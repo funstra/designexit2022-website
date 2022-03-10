@@ -1,0 +1,17 @@
+{% macro right(n) %}
+    <svg
+  width="100%"
+  height="100%"
+  viewBox="0 0 1000 866"
+  preservAspectRatio="xMidYMid">
+        <g fill="transparent" stroke="black">
+            {% for i in range(0, n) %}
+                {% set f = (i / n) %}
+                {% set s = f %}
+                {% set ox = (1 - s) * 500 %}
+                {% set oy = (1 - s) * 577.3 %}
+                <polygon vector-effect="non-scaling-stroke" points="0,866 1000,866 500,0" transform="translate({{ox}} {{oy}}) scale({{s}}) "/>
+            {% endfor %}
+        </g>
+    </svg>
+{% endmacro %}
