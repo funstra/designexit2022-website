@@ -17,17 +17,18 @@ title: home
   <header w:grid="row-start-2 col-start-1">
     <div class="logo">
       <h1>
-        designexit <br />
+        designexit <br/>
         <span>2022</span>
       </h1>
     </div>
-    <p>Vernisage <time datetime="2022-06-01">1 Juni 2022</time></p>
+    <p>Vernisage <time datetime="2022-06-01">1 Juni 2022</time>
+    </p>
   </header>
   <div w:grid="row-start-2 col-start-2" class="student-grid">
     {% set noffset = 2 %}
     {% set row = 50 %}
-    {% for i in range(0,12) %}
-    <div
+    {% for i in range(0, 12) %}
+      <div
     {% if (i%4) == 0 %}
     {% set row = (row) + noffset*50 %}
     {% endif %}
@@ -39,7 +40,7 @@ title: home
     {% endfor %}
   </div>
 </section>
-<section class="max-w-[60rem] mx-auto flex flex-col justify-center gap-s p-s">
+<section class="flex flex-col justify-center gap-s p-s">
   <div class="flex flex-col md:flex-row gap-s">
     <div class="basis-[40%]">
       <h2>hello</h2>
@@ -62,12 +63,13 @@ title: home
       class="flex-shrink-0 h-[15rem] flex-grow object-cover"
       src="/assets/bridge.1.jpg"
       alt=""
-    />
+/>
   </div>
 </section>
 <section>
   <a w:grid="row-start-1" href="" w:text="xs middle"
-    ><span>&larr;</span> tillbaka</a
+    >
+    <span>&larr;</span> tillbaka</a
   >
   <svg
     width="100%"
@@ -75,7 +77,7 @@ title: home
     preservAspectRatio="xMidYMid"
     w:border="accent 2"
   >
-    <circle cx="50%" cy="50%" r="256" />
+    <circle cx="50%" cy="50%" r="256"/>
   </svg>
 
   <div>
@@ -135,8 +137,10 @@ title: home
     <a href="">hemsida</a>
   </div>
   <nav w:m="t-l" w:flex="~" w:justify="between">
-    <a href=""><span>&larr;</span> föregående</a
-    ><a href="">nästa <span>&rarr;</span></a>
+    <a href="">
+      <span>&larr;</span> föregående</a
+    >
+    <a href="">nästa <span>&rarr;</span></a>
   </nav>
 </section>
 <section></section>

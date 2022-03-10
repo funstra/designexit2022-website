@@ -13,7 +13,7 @@
         {% endif %}
     </head>
 
-    <body w:h="full" w:flex="~ col" >
+    <body w:h="full" w:flex="~ col">
         {{ content | safe }}
         {% if build.env == "production" %}
             {% viteScriptTag "src/client/main.js" %}

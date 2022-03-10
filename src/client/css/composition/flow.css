@@ -4,6 +4,9 @@
   }
   &.cramp {
     > * {
+      max-width: 100%;
+      width: 70rem;
+      @apply px-s;
     }
   }
   &.grow {
