@@ -2,6 +2,7 @@
   <div w:display="hidden" class="logo">LOGO</div>
   <nav w:m="l-auto" id="site-nav">
     <button
+      w:z="100"
       onclick="
     const parent = event.target.parentElement
     const state = parent.dataset.menuState
@@ -10,20 +11,20 @@
     "
     >
       <svg
-        width="2rem"
-        height="2rem"
-        viewBox="0 0 32 16"
+        width="2.5rem"
+        height="2.5rem"
+        viewBox="0 0 32 32"
         preservAspectRatio="xMidYMid"
         style="pointer-events: none"
       >
         <g stroke="black" stroke-width="2">
-          <line x1="0" x2="100%" y1="0" y2="0"/>
-          <line x1="0" x2="100%" y1="8" y2="8"/>
-          <line x1="0" x2="100%" y1="16" y2="16"/>
+          <line x1="0" x2="100%" y1="10%" y2="10%" />
+          <line x1="0" x2="100%" y1="50%" y2="50%" />
+          <line x1="0" x2="100%" y1="90%" y2="90%" />
         </g>
       </svg>
     </button>
-    <ol>
+    <ol w:text="truncate">
       <li>
         <a href="">Start</a>
       </li>
