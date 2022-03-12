@@ -33,6 +33,7 @@
     transition-duration: 50ms;
     transition-timing-function: ease-out;
     > li {
+      pointer-events: all;
       opacity: 0;
       transition-property: opacity;
       transition-duration: 75ms;

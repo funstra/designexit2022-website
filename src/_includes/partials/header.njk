@@ -1,14 +1,12 @@
 <header w:p="b-2xs" w:flex="~" w:align="items-center" w:border="b-2 accent">
   <div w:display="hidden" class="logo">LOGO</div>
-  <nav w:m="l-auto" id="site-nav">
+  <nav w:m="l-auto" id="site-nav" onclick="
+    const parent = event.target.closest('nav')
+    const state = parent.dataset.menuState
+    state ? parent.dataset.menuState = '' : parent.dataset.menuState = 'open'
+    ">
     <button
       w:z="100"
-      onclick="
-    const parent = event.target.parentElement
-    const state = parent.dataset.menuState
-    
-    state ? parent.dataset.menuState = '' : parent.dataset.menuState = 'open'
-    "
     >
       <svg
         width="2.5rem"
@@ -18,24 +16,24 @@
         style="pointer-events: none"
       >
         <g stroke="black" stroke-width="2">
-          <line x1="0" x2="100%" y1="10%" y2="10%" />
-          <line x1="0" x2="100%" y1="50%" y2="50%" />
-          <line x1="0" x2="100%" y1="90%" y2="90%" />
+          <line x1="0" x2="100%" y1="10%" y2="10%"/>
+          <line x1="0" x2="100%" y1="50%" y2="50%"/>
+          <line x1="0" x2="100%" y1="90%" y2="90%"/>
         </g>
       </svg>
     </button>
     <ol w:text="truncate">
       <li>
-        <a href="">Start</a>
+        <a href="#start">Start</a>
       </li>
       <li>
         <a href="">Vad är Designexit</a>
       </li>
       <li>
-        <a href="">Vilka är vi</a>
+        <a href="#vilka-ar-vi">Vilka är vi</a>
       </li>
       <li>
-        <a href="">Vernisage</a>
+        <a href="#vernisage">Vernisage</a>
       </li>
     </ol>
   </nav>

@@ -1,20 +1,32 @@
-#section-start {
+#start {
+
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: max-content;
   justify-items: center;
   gap: var(--gap, var(--space-s));
+
   .student-grid {
     display: none;
     gap: 0.25em;
     width: 100%;
+    gap: 1em;
+    /* transform: translateX(calc(-1 * var(--space-l))); */
     height: 100%;
     grid-template-columns: repeat(4, 1fr);
     > div {
       aspect-ratio: 1/0.866;
-      clip-path: polygon(0% 100%, 100%100%, 50% 0%);
+      /* aspect-ratio: 1/1; */
+      clip-path: polygon(var(--polygon));
+
+      background-image: var(--bg-url);
+      background-size: cover;
+      background-position: var(--bg-offset);
+      background-repeat: no-repeat;
     }
   }
+
   header {
     text-align: center;
     display: flex;
@@ -24,7 +36,7 @@
   }
   @media screen and (min-width: 960px) {
     grid-template-columns: max-content 1fr;
-    grid-template-rows: 1fr max-content 8fr;
+    grid-template-rows: 1fr max-content 4fr;
     .tri {
       display: none;
     }

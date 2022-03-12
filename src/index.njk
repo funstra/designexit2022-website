@@ -5,7 +5,7 @@ title: home
 
 {% import 'macros/triangle.njk' as tri %}
 
-<section id="section-start">
+<section id="start">
   <svg
     class="tri"
     w:h="max-[30rem]"
@@ -32,41 +32,23 @@ title: home
     {% if (i%4) == 0 %}
     {% set row = (row) + noffset*50 %}
     {% endif %}
-    style="--offset:{{(i*50 - row) * -1}}%;--odd:{{(i % 2) * 180}}deg;--row:{{row}}"
+    {% if i % 2 == 0 %}
+      {% set polystring = "0% 100%, 100%100%, 50% 0%" %}
+      {% set bgoffset = '-5px 0%' %}
+      {% else %}
+      {% set polystring = "0% 0%, 100%0%, 50% 100%" %}
+      {% set bgoffset = '0 10%' %}
+    {% endif %}
+    style="--offset:{{(i*50 - row) * -1}}%;--odd:{{(i % 2) * 180}}deg;--row:{{row}};--bg-url:url(/assets/img{{i % 2}}.jpg);--polygon:{{polystring}};--bg-offset:{{bgoffset}}"}
   
-      w:transform="~ rotate-[var(--odd)] translate-x-[var(--offset)]"
-      class="p-s bg-accent"
+      w:transform="~ translate-x-[var(--offset)]"
+      class="p-2 bg-accent filter grayscale"
     ></div>
     {% endfor %}
   </div>
 </section>
-<section class="flex flex-col justify-center gap-s p-s">
-  <div class="flex flex-col md:flex-row gap-s">
-    <div class="basis-[40%]">
-      <h2>hello</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
-        doloremque neque voluptatem explicabo assumenda temporibus?
-      </p>
-    </div>
-    <div class="flex-shrink-0 h-[15rem] flex-grow bg-accent"></div>
-  </div>
-  <div class="flex flex-col md:flex-row gap-s">
-    <div class="basis-[40%]">
-      <h2>hello</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
-        doloremque neque voluptatem explicabo assumenda temporibus?
-      </p>
-    </div>
-    <img
-      class="flex-shrink-0 h-[15rem] flex-grow object-cover"
-      src="/assets/bridge.1.jpg"
-      alt=""
-/>
-  </div>
-</section>
-<section>
+
+<section id="vilka-ar-vi">
   <a w:grid="row-start-1" href="" w:text="xs middle"
     >
     <span>&larr;</span> tillbaka</a
@@ -142,5 +124,32 @@ title: home
     >
     <a href="">nästa <span>&rarr;</span></a>
   </nav>
+</section>
+<section id="vernisage" class="flex flex-col justify-center gap-s p-s">
+  <div class="flex flex-wrap gap-s">
+    <div class="basis-[20rem] flex-grow">
+      <h2>hello</h2>
+      <p>
+        Lorem ipsum dolor sit amet consecteturs,
+        doloremque neque voluptatem explicabo assumenda temporibus?
+      </p>
+    </div>
+    <div class="h-[15rem] basis-[0%] flex-grow-[999] min-w-[50%]">
+      <img
+        class="object-cover h-full w-full"
+        src="/assets/img1.jpg"/>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-s">
+    <div class="basis-[20rem] flex-grow">
+      <h2 >hello longer yay yayyyy</h2>
+      <p> que neque voluptatem explicabo assumenda temporibus?</p>
+    </div>
+    <div class="h-[15rem] basis-[0%] flex-grow-[999] min-w-[50%]">
+      <img
+        class="object-cover h-full w-full"
+        src="/assets/digital-vernissage.jpg"/>
+    </div>
+  </div>
 </section>
 <section></section>

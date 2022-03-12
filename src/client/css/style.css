@@ -9,5 +9,10 @@
 }
 body {
   font-family: forma-djr-text, sans-serif;
-  @apply p-2xs;
+  @apply px-2xs;
+  @apply pt-2xs;
+}
+main{
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
