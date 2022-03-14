@@ -1,54 +1,62 @@
 <section class="vilkaarvi">
     <h2>Vilka är vi?</h2>
-    <div class="content grid grid-flow-row sm:grid-cols-3 md:grid-cols-4 gap-s gap-y-s justify-items-center">
+    <div id="studentGrid" class="content grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-s gap-y-s justify-items-center">
         
-        <div class="card"  w:w="max-xl">
+        {% import 'macros/cards.njk' as cards %}
+
+        {% for dumstrut in studenter %}
+            
+        {{cards.person(dumstrut)}}
+
+        {% endfor %}
+
+        {# <div class="card"  w:w="max-xl">
             <img src="/assets/amanda.jpg" alt="porträtt av amanda">
-            <h3>Amanda Sellberg</h3>
+            <h3>Amanda <br> Sellberg</h3>
             <button>Läs mer</button>
         </div>
 
         <div class="card md:mt-l sm:mt-l" w:w="max-xl">
             <img src="/assets/berfin.jpg" alt="porträtt av berfin">
-            <h3>Berfin Kosmaz</h3>
+            <h3>Berfin <br> Kosmaz</h3>
             <button class="mt-auto">Läs mer</button>
         </div>
 
         <div class="card"  w:w="max-xl">
             <img src="/assets/cissi.jpg" alt="porträtt av cissi">
-            <h3>Cecilia Fredriksson</h3>
+            <h3>Cecilia <br> Fredriksson</h3>
             <button class="">Läs mer</button>
         </div>
 
         <div class="card md:mt-l"  w:w="max-xl">
             <img src="/assets/klas.jpg" alt="porträtt av klas">
-            <h3>Klas Gråhns</h3>
+            <h3>Klas <br> Gråhns</h3>
             <button>Läs mer</button>
         </div>
 
         <div class="card sm:mt-l md:mt-[0]"  w:w="max-xl">
             <img src="/assets/marcus.jpg" alt="porträtt av marcus">
-            <h3>Marcus Aldrin</h3>
+            <h3>Marcus <br> Aldrin</h3>
             <button>Läs mer</button>
         </div>
 
         <div class="card md:mt-l"  w:w="max-xl">
             <img src="/assets/marcus.jpg" alt="porträtt av marcus">
-            <h3>Marcus Aldrin</h3>
+            <h3>Marcus <br> Aldrin</h3>
             <button>Läs mer</button>
         </div>
 
         <div class="card"  w:w="max-xl">
             <img src="/assets/marcus.jpg" alt="porträtt av marcus">
-            <h3>Marcus Aldrin</h3>
+            <h3>Marcus <br> Aldrin</h3>
             <button>Läs mer</button>
         </div>
 
         <div class="card md:mt-l sm:mt-l"  w:w="max-xl">
             <img src="/assets/marcus.jpg" alt="porträtt av marcus">
-            <h3>Marcus Aldrin</h3>
+            <h3>Marcus <br> Aldrin</h3>
             <button>Läs mer</button>
-        </div>              
+        </div>               #}
 
     </div>
 </section>

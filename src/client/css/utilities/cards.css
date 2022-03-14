@@ -1,0 +1,11 @@
+#studentGrid {
+    > .card:nth-child(even) {
+        @apply mt-l
+    }
+    
+    @screen md{
+        > .card:nth-child(even) {
+            background-color: red;
+        }
+    }
+}
