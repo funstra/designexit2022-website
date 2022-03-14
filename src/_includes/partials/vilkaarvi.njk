@@ -4,9 +4,9 @@
         
         {% import 'macros/cards.njk' as cards %}
 
-        {% for dumstrut in studenter %}
+        {% for student in studenter %}
             
-        {{cards.person(dumstrut)}}
+        {{cards.person(student)}}
 
         {% endfor %}
 

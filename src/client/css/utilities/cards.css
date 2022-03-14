@@ -2,10 +2,28 @@
     > .card:nth-child(even) {
         @apply mt-l
     }
+} 
     
-    @screen md{
-        > .card:nth-child(even) {
-            background-color: red;
-        }
+@screen sm {
+    #studentGrid > .card:nth-child(even) {
+        @apply mt-0
+    }
+}
+
+@screen sm {
+    #studentGrid > .card:nth-child(3n+2) {
+        @apply mt-l
+    }
+}
+
+@screen md {
+    #studentGrid > .card:nth-child(3n+2) {
+        @apply mt-0
+    }
+}
+
+@screen md{
+    #studentGrid > .card:nth-child(even) {
+        @apply mt-l
     }
 }
