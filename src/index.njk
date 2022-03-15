@@ -3,6 +3,8 @@ layout: layouts/scroll-journey
 title: home
 ---
 
+{% include "partials/vilkaarvi.njk" %}
+
 {% import 'macros/triangle.njk' as tri %}
 
 <section id="section-start">
@@ -40,6 +42,7 @@ title: home
     {% endfor %}
   </div>
 </section>
+
 <section class="flex flex-col justify-center gap-s p-s">
   <div class="flex flex-col md:flex-row gap-s">
     <div class="basis-[40%]">
@@ -66,6 +69,7 @@ title: home
 />
   </div>
 </section>
+
 <section>
   <a w:grid="row-start-1" href="" w:text="xs middle"
     >
@@ -143,4 +147,5 @@ title: home
     <a href="">nästa <span>&rarr;</span></a>
   </nav>
 </section>
+
 <section></section>
