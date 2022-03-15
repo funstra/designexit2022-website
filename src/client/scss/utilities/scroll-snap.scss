@@ -1,0 +1,6 @@
+main {
+  scroll-snap-type: y proximity;
+  > * {
+    scroll-snap-align: start;
+  }
+}

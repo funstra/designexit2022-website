@@ -43,4 +43,15 @@ export default {
       "2xl": "var(--space-2xl)",
     },
   },
+  plugins: [
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        body: { lineHeight: 1 },
+        p: { fontSize: "var(--step-0)", fontWeight: "100" },
+        h1: { fontSize: "var(--step-3)", fontWeight: "1000" },
+        h2: { fontSize: "var(--step-3)", fontWeight: "1000" },
+        h3: { fontSize: "var(--step-2)", fontWeight: "1000" },
+      });
+    }),
+  ]
 };

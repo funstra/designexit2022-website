@@ -1,0 +1,16 @@
+.floating-border {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    top: var(--y, -0.25rem);
+    left: var(--x, -0.25rem);
+
+    border-color: var(--color, hsl(0, 0%, 0%));
+    border-width: var(--border-width, 2px);
+    border-radius: inherit;
+  }
+}

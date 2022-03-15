@@ -1,0 +1,16 @@
+.cramp {
+  &.flex {
+    align-items: center;
+  }
+  &:not(.flex) {
+    width: 100%;
+    > * {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  > * {
+    width: var(--width, 70rem);
+    max-width: 100%;
+  }
+}

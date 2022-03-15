@@ -1,27 +1,23 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fpapado/eleventy-with-vite"
-  },
-  "bugs": {
-    "url": "https://github.com/fpapado/eleventy-with-vite"
-  },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "autoprefixer": "10.4.2",
     "concurrently": "^6.0.0",
     "html-minifier-terser": "7.0.0-alpha.1",
+    "sass": "^1.49.9",
     "vite": "2.8.0",
     "vite-plugin-windicss": "^1.8.3",
-    "windicss": "3.5.1",
-    "autoprefixer": "10.4.2"
+    "windicss": "3.5.1"
   },
   "scripts": {
     "dev": "concurrently npm:dev:*",
-    "dev:eleventy": "eleventy --serve",
+    "dev:eleventy": "eleventy --serve --incremental",
     "dev:vite": "vite --host",
     "build": "npm run build:vite && npm run build:eleventy",
     "build:eleventy": "NODE_ENV=production eleventy",
     "build:vite": "NODE_ENV=production vite build",
-    "prod": "NODE_ENV=production npm run build && serve _site"
-  }
+    "prod": "NODE_ENV=production npm run build && serve _site",
+    "preview": "vite preview"
+  },
+  "browserslist": "last 1 version or > 1%"
 }

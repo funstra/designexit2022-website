@@ -1,39 +1,50 @@
-<header w:p="b-2xs" w:flex="~" w:align="items-center" w:border="b-2 accent">
-  <div w:display="hidden" class="logo">LOGO</div>
-  <nav w:m="l-auto" id="site-nav" onclick="
-    const parent = event.target.closest('nav')
-    const state = parent.dataset.menuState
-    state ? parent.dataset.menuState = '' : parent.dataset.menuState = 'open'
-    ">
-    <button
-      w:z="100"
-    >
+<header
+      data-current=""
+      class="flex justify-between py-2 border-b-2 border-black">
+  <nav
+        id="site-nav"
+        class="flex w-full">
+    <button class="hamburger ml-auto relative z-20">
       <svg
-        width="2.5rem"
-        height="2.5rem"
-        viewBox="0 0 32 32"
-        preservAspectRatio="xMidYMid"
-        style="pointer-events: none"
-      >
-        <g stroke="black" stroke-width="2">
-          <line x1="0" x2="100%" y1="10%" y2="10%"/>
-          <line x1="0" x2="100%" y1="50%" y2="50%"/>
-          <line x1="0" x2="100%" y1="90%" y2="90%"/>
+            class=""
+            width="2.5rem"
+            height="2rem"
+            viewBox="0 0 48 32"
+            preservAspectRatio="xMidYMid">
+        <style>
+          .hamburger line {
+            transition-property: transform, opacity;
+            transition-duration: 50ms, 25ms;
+          }
+          [data-menu-state="open"] .hamburger line:first-child {
+            transform: translate(8px, -1.5px) rotate(45deg);
+          }
+          [data-menu-state="open"] .hamburger line:nth-child(2) {
+            transform-origin: center;
+            transform: rotate(45deg);
+            opacity: 0;
+          }
+          [data-menu-state="open"] .hamburger line:last-child {
+            transform-origin: 0 31px;
+            transform: translate(8px, 1.5px) rotate(-45deg);
+          }
+        </style>
+        <g stroke="black" stroke-width="4">
+          <line x1="0" x2="48" y1="1" y2="1"/>
+          <line x1="0" x2="48" y1="16" y2="16"/>
+          <line x1="0" x2="48" y1="31" y2="31"/>
         </g>
       </svg>
     </button>
-    <ol w:text="truncate">
-      <li>
-        <a href="#start">Start</a>
+    <ol w:opacity="0" w:bg="primary" class="pointer-events-none fixed z-10 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center text-xl">
+      <li class="pointer-events-auto">
+        <a href="#start">start</a>
       </li>
-      <li>
-        <a href="">Vad är Designexit</a>
+      <li class="pointer-events-auto">
+        <a href="#designexit">designexit</a>
       </li>
-      <li>
-        <a href="#vilka-ar-vi">Vilka är vi</a>
-      </li>
-      <li>
-        <a href="#vernisage">Vernisage</a>
+      <li class="pointer-events-auto">
+        <a href="#vilka-ar-vi">vilka ar vi</a>
       </li>
     </ol>
   </nav>

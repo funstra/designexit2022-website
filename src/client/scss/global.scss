@@ -1,0 +1,11 @@
+.\? {
+  @apply border-red-500;
+  @apply border-2;
+  &\> > * {
+    @apply border-red-500;
+    @apply border-y-2;
+  }
+}
+
+main > section {
+}

@@ -1,0 +1,30 @@
+body > header {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: attr(data-current);
+    background-color: black;
+    @apply px-2;
+    @apply py-1;
+    color: white;
+    letter-spacing: 0.5ch;
+    bottom: 0;
+  }
+}
+#site-nav {
+  > ol {
+    transition: top;
+    transition-duration: 125ms;
+  }
+  [data-menu-state="open"] & > ol {
+    top: 0;
+    opacity: 1;
+  }
+}
+[data-menu-state="open"] main {
+  overflow-y: hidden;
+}
+
+main {
+  scroll-behavior: smooth;
+}
