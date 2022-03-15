@@ -2,8 +2,12 @@
 layout: layouts/base.njk
 title: designexit 
 ---
-<section id="start" w:grid="gap-2xs">
-  {% import 'macros/triangle.njk' as tri %}
+
+{% include "partials/vilkaarvi.njk" %}
+
+{% import 'macros/triangle.njk' as tri %}
+
+<section id="section-start">
   <svg
   w:display="hidden"
     class="tri"
@@ -62,7 +66,7 @@ title: designexit
   </div> #}
 </section>
 <section id="designexit" class="p-10">
-<h1>Vad är Designexit?</h1>
+  <h1>Vad är Designexit?</h1>
   <svg
           class="overflow-visible"
           width="100%"
