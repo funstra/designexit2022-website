@@ -46,12 +46,16 @@ export default {
   plugins: [
     plugin(function ({ addBase, theme }) {
       addBase({
-        body: { lineHeight: 1 },
-        p: { fontSize: "var(--step-0)", fontWeight: "100" },
-        h1: { fontSize: "var(--step-3)", fontWeight: "1000" },
-        h2: { fontSize: "var(--step-3)", fontWeight: "1000" },
-        h3: { fontSize: "var(--step-2)", fontWeight: "1000" },
+        body: {
+          lineHeight: 1,
+          "font-family": "forma-djr-text,sans-serif",
+          "font-style": "normal"
+        },
+        p: { fontSize: "var(--step-0)", fontWeight: "300" },
+        h1: { fontSize: "var(--step-3)", fontWeight: "800" },
+        h2: { fontSize: "var(--step-3)", fontWeight: "800" },
+        h3: { fontSize: "var(--step-2)", fontWeight: "500" },
       });
     }),
-  ]
+  ],
 };
