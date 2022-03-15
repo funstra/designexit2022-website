@@ -5,19 +5,17 @@ title: designexit
 
 {% import 'macros/triangle.njk' as tri %}
 
-<section id="start" w:grid="gap-s">
+<section id="start" w:grid="gap-s" class="justify-items-center">
   <svg
-  w:display="hidden"
+  w:grid="row-start-2 row-span-2 col-start-2"
     class="tri"
     w:h="max-[30rem]"
     viewBox="0 0 1000 866"
-    preservAspectRatio="xMidYMid"
-  >
+    preservAspectRatio="xMidYMin">
     {{ tri.right(8) }}
   </svg>
-  <header class="row-start-1 sticky top-2xs h-max text-left" >
-    <h1 class="text-center uppercase w-max leading-[0.66] ">
-            designexit <br/>
+  <header class="row-start-2 h-max text-left" >
+    <h1 class="text-center uppercase w-max leading-[0.66] "> designexit <br/>
       <span class="text-[2.5em]">2022</span>
     </h1>
     <p>Vernisage <time datetime="2022-06-01">1 Juni 2022</time>
@@ -26,110 +24,6 @@ title: designexit
 </section>
 <section id="designexit" class="p-10">
   <h1>Vad är Designexit?</h1>
-  <svg
-          class="overflow-visible"
-          width="100%"
-          height="100%"
-          viewBox="0 0 1024 1024"
-          preservAspectRatio="xMidYMid">
-    <defs>
-      <pattern
-              id="patterns-dots"
-              width="10"
-              height="10"
-              viewBox="0 0 16 16"
-              patternUnits="userSpaceOnUse">
-        <circle cx="2" cy="2" r="4"/>
-        <circle cx="14" cy="14" r="4"/>
-      </pattern>
-    </defs>
-    <g
-            transform="translate(64 0)"
-            stroke="black"
-            stroke-width="8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="red"
-            fill-rule="evenodd">
-      <circle cx="128" cy="416" r="64"/>
-      <path d="M128,416 l0,256"/>
-      <circle cx="512" cy="416" r="64" fill="yellow"/>
-      <circle cx="256" cy="416" r="8" fill="transparent"/>
-      <path
-              fill="transparent"
-              d="
-            M256,416
-            l128,0
-            a1,1 0 0 1 256,0
-            "/>
-      <path
-              d="
-            M0,512
-            l256,0
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,256
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,256
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,256
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,256
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,256
-            a1,1 0 0 0 32,0
-            l0,-256
-            a1,1 0 0 1 32,0
-            l0,512
-            A1,1 0 0 1 0,512
-            "/>
-      <g>
-        <circle cx="784" cy="512" r="32"/>
-        <path
-                fill="transparent"
-                d="
-              M768,512
-              q8,16 0,32
-              t0,32
-              t0,32
-              t0,32
-              t0,32
-              "/>
-        <path
-                fill="transparent"
-                d="
-              M784,512
-              q8,16 0,32
-              t0,32
-              t0,32
-              t0,32
-              t0,32
-              t0,32
-              t0,32
-              t0,32
-              "/>
-        <path
-                fill="transparent"
-                d="
-              M800,512
-              q8,16 0,32
-              t0,32
-              t0,32
-              t0,32
-              "/>
-      </g>
-    </g>
-  </svg>
 </section>
 
 {% include "partials/vilkaarvi.njk" %}
-{# {% include "partials/students-container.njk" %} #}
