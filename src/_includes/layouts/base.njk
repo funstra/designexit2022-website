@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -8,11 +8,10 @@
         <link rel="preload" as="font" type="font/woff2" href="/fonts/pjr-bold.woff2" crossorigin=""/>
         <link rel="preload" as="font" type="font/woff2" href="/fonts/pjr-light.woff2" crossorigin=""/>
         <link rel="preload" as="font" type="font/woff2" href="/fonts/pjr-medium.woff2" crossorigin=""/>
-        {% if build.env == "production" %}
-            {% viteLinkStylesheetTags
-            "src/clientain.js" %}
+        {# {% if build.env == "production" %}
+            {% viteLinkStylesheetTags "src/client/main.js" %}
             {% viteLinkModulePreloadTags "src/client/main.js" %}
-        {% endif %}
+        {% endif %} #}
     </head>
     <body w:h="screen" w:flex="~ col" w:overflow="hidden" w:p="2">
         {% include "partials/header.njk" %}

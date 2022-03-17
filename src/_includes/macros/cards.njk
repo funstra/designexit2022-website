@@ -1,7 +1,10 @@
-{% macro person(student) %}
-
+{% macro person(student, env) %}
     <div class="card"  w:w="max-xl">
-        {% studentImage student %}
+        {% if env == "production" %}
+            {% studentImage student %}
+        {% else %}
+            <img src="/assets/img/{{(student.fnamn + '-' + student.enamn) | slug}}.jpg" alt="">
+        {% endif %}
         <h3>
             {{student.fnamn}}
             <br>
@@ -9,5 +12,4 @@
         </h3>
         <button>Läs mer</button>
     </div>
-
 {% endmacro %}
