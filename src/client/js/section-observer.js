@@ -6,6 +6,8 @@ document.querySelectorAll("main > section").forEach(section => {
         if (entry.isIntersecting) {
           document.querySelector("body > header").dataset.current = section.id;
           section.classList.add("intersecting");
+          // location.hash = section.id;
+          // history.pushState(null, null, `#${section.id}`);
         } else if (!entry.isIntersecting) {
           section.classList.remove("intersecting");
         }
@@ -16,4 +18,12 @@ document.querySelectorAll("main > section").forEach(section => {
     }
   );
   obs.observe(section);
+});
+
+window.addEventListener("popstate", e => {
+  if (!location.hash) {
+    // location.hash = "start";
+  } else {
+    // location.hash = location.hash.replace("#", "");
+  }
 });

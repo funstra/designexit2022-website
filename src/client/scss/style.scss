@@ -3,3 +3,40 @@
 @import "composition/";
 @import "block/";
 @import "utilities/";
+
+@font-face {
+  font-family: forma-djr-text;
+  src: url("/fonts/pjr-light.woff2") format("woff2"),
+    url("/fonts/pjr-light.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: forma-djr-text;
+  src: url("/fonts/pjr-medium.woff2") format("woff2"),
+    url("/fonts/pjr-medium.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: forma-djr-text;
+  src: url("/fonts/pjr-bold.woff2") format("woff2"),
+    url("/fonts/pjr-bold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+}
+
+html.dark {
+  --primary: 0 0% 0%;
+  --accent: 0 0% 100%;
+}
+body {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--accent));
+}

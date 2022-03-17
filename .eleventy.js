@@ -1,14 +1,46 @@
 const fs = require("fs/promises");
 const path = require("path");
 const htmlterser = require("html-minifier-terser");
+const Image = require("@11ty/eleventy-img");
 
 const INPUT_DIR = "src";
 
 const PATH_PREFIX = "/";
+
+function studentImage(student) {
+  const src =
+    `./assets/${student.fnamn}-${student.enamn}.jpg`.toLocaleLowerCase();
+  const alt = `Porträtt av ${student.fnamn} ${student.enamn}`;
+  const opt = {
+    widths: [256, 384, 512, 768, 1024, 1536, 2048],
+    filenameFormat: function (id, src, width, format, options) {
+      return `${src.slice(
+        src.lastIndexOf("/") + 1,
+        src.lastIndexOf(".")
+      )}-${width}.${format}`;
+    },
+    urlPath: "/img/",
+    outputDir: "./_site/img/",
+  };
+
+  Image(src, opt);
+
+  let imageAttributes = {
+    alt,
+    sizes: "100vw",
+    loading: "lazy",
+    decoding: "async",
+  };
+  let metadata = Image.statsSync(src, opt);
+  return Image.generateHTML(metadata, imageAttributes);
+}
+
 /** @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addWatchTarget("assets");
-  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addNunjucksShortcode("studentImage", studentImage);
+
+  eleventyConfig.addWatchTarget("./src/fonts");
+  eleventyConfig.addPassthroughCopy("./src/fonts");
 
   eleventyConfig.addNunjucksAsyncShortcode("viteScriptTag", viteScriptTag);
   eleventyConfig.addNunjucksAsyncShortcode(
@@ -27,15 +59,17 @@ module.exports = function (eleventyConfig) {
 
   async function viteLinkModulePreloadTags(entryFilename) {
     const entryChunk = await getChunkInformationFor(entryFilename);
-    if (!entryChunk.dynamicImports || entryChunk.dynamicImports.length === 0) {
+
+    if (!entryChunk.imports || entryChunk.imports.length === 0) {
       console.log(
         `The script for ${entryFilename} has no imports. Nothing to preload.`
       );
       return "";
     }
     const allPreloadTags = await Promise.all(
-      entryChunk.dynamicImports.map(async importEntryFilename => {
+      entryChunk.imports.map(async importEntryFilename => {
         const chunk = await getChunkInformationFor(importEntryFilename);
+
         return `<link rel="preload" as="fetch" type="text/javasript" href="${PATH_PREFIX}${chunk.file}"></link>`;
       })
     );

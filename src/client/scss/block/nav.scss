@@ -3,10 +3,12 @@ body > header {
   &::after {
     position: absolute;
     content: attr(data-current);
-    background-color: black;
+    // background-color: black;
+    @apply bg-accent;
     @apply px-2;
     @apply py-1;
-    color: white;
+    // color: white;
+    @apply text-primary;
     letter-spacing: 0.5ch;
     bottom: 0;
     font-weight: 300;

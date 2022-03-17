@@ -3,6 +3,15 @@
   grid-template-columns: max-content 1fr;
   grid-template-rows: 1fr min-content max-content 4fr;
 }
+// section {
+//   opacity: 0.5;
+//   transition-property: opacity;
+//   transition-duration: 125ms;
+//   transition-timing-function: ease-outƒ;
+// }
+// section:target {
+//   opacity: 1;
+// }
 
 #start {
   header {

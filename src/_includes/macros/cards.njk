@@ -1,10 +1,13 @@
 {% macro person(student) %}
-    
 
-<div class="card"  w:w="max-xl">
-    <img src="/assets/{{student.fnamn}}-{{student.enamn}}.jpg" alt="porträtt av {{student.fnamn}}">
-    <h3>{{student.fnamn}} <br> {{student.enamn}}</h3>
-    <button>Läs mer</button>
-</div>
+    <div class="card"  w:w="max-xl">
+        {% studentImage student %}
+        <h3>
+            {{student.fnamn}}
+            <br>
+            {{student.enamn}}
+        </h3>
+        <button>Läs mer</button>
+    </div>
 
 {% endmacro %}

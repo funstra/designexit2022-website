@@ -1,9 +1,13 @@
 {
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-img": "^2.0.0",
+    "@types/leaflet": "^1.7.9",
     "autoprefixer": "10.4.2",
     "concurrently": "^6.0.0",
     "html-minifier-terser": "7.0.0-alpha.1",
+    "leaflet": "^1.7.1",
+    "leaflet-gesture-handling": "^1.2.2",
     "sass": "^1.49.9",
     "vite": "2.8.0",
     "vite-plugin-windicss": "^1.8.3",

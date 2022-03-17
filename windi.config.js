@@ -48,7 +48,8 @@ export default {
       addBase({
         body: {
           lineHeight: "1",
-          "font-family": "forma-djr-text,sans-serif",
+          "font-family": "forma-djr-text,Arial,sans-serif",
+          // "font-family": "Arial",
           "font-style": "normal",
         },
         p: { fontSize: "var(--step-0)", fontWeight: "300" },

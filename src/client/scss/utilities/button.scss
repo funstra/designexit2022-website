@@ -1,27 +1,32 @@
 #studentGrid > * > button {
-    display: none;
+  display: none;
 }
 
 @screen sm {
-    #studentGrid > * > button {
-        display: block;
-        border-radius: 10px; 
-        border: 2px solid black;
-        width: 100%;
-        padding-top: var(--space-3xs);
-        padding-bottom: var(--space-3xs);
-    }
+  #studentGrid > * > button {
+    display: block;
+    // border-radius: 10px;
+    // border: 2px solid black;
+    width: 100%;
+    padding-top: var(--space-3xs);
+    padding-bottom: var(--space-3xs);
+  }
 }
 
 button {
+  &:not(.hamburger) {
     border-radius: 3px;
+    @apply border-accent;
+    border-width: 2px;
+    border-style: solid;
   }
-  
-  .btn-light-inactive {
-    border: 2px solid black;
-    padding: 0.5rem 1rem;
-  }
-  
-  .btn-info {
-    font-size: 1rem;
-  }
+}
+
+.btn-light-inactive {
+  // border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.btn-info {
+  font-size: 1rem;
+}
