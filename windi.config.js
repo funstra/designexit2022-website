@@ -47,7 +47,7 @@ export default {
     plugin(function ({ addBase, theme }) {
       addBase({
         body: {
-          lineHeight: 1,
+          lineHeight: "1",
           "font-family": "forma-djr-text,sans-serif",
           "font-style": "normal"
         },
