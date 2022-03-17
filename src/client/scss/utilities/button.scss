@@ -12,3 +12,16 @@
         padding-bottom: var(--space-3xs);
     }
 }
+
+button {
+    border-radius: 3px;
+  }
+  
+  .btn-light-inactive {
+    border: 2px solid black;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-info {
+    font-size: 1rem;
+  }

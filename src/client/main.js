@@ -2,9 +2,10 @@ import "virtual:windi-base.css";
 import "./scss/style.scss";
 import "virtual:windi-components.css";
 import "virtual:windi-utilities.css";
-
 import "./js/section-observer";
 import "./js/student-handler";
+import "./js/timer";
+import "./js/map";
 
 // Hamburger
 document.querySelector("body > header > nav").addEventListener("click", e => {

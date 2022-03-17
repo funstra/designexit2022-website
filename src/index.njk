@@ -4,7 +4,6 @@ title: designexit
 ---
 
 {% import 'macros/triangle.njk' as tri %}
-
 <section id="start" w:grid="gap-s" class="justify-items-center">
   <svg
   w:grid="row-start-2 row-span-2 col-start-2"
@@ -22,8 +21,6 @@ title: designexit
     </p>
   </header>
 </section>
-<section id="designexit" class="p-10">
-  <h1>Vad är Designexit?</h1>
-</section>
-
+{% include "partials/about.njk" %}
 {% include "partials/vilkaarvi.njk" %}
+{% include "partials/vernissage.njk" %}
