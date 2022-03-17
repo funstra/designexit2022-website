@@ -49,7 +49,7 @@ export default {
         body: {
           lineHeight: "1",
           "font-family": "forma-djr-text,sans-serif",
-          "font-style": "normal"
+          "font-style": "normal",
         },
         p: { fontSize: "var(--step-0)", fontWeight: "300" },
         h1: { fontSize: "var(--step-3)", fontWeight: "800" },

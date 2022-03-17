@@ -1,29 +1,29 @@
-#studentGrid {
-    > .card:nth-child(even) {
-        @apply mt-l
-    }
-} 
+// #studentGrid {
+//     > .card:nth-child(even) {
+//         @apply mt-l
+//     }
+// } 
     
-@screen sm {
-    #studentGrid > .card:nth-child(even) {
-        @apply mt-0
-    }
-}
+// @screen sm {
+//     #studentGrid > .card:nth-child(even) {
+//         @apply mt-0
+//     }
+// }
 
-@screen sm {
-    #studentGrid > .card:nth-child(3n+2) {
-        @apply mt-l
-    }
-}
+// @screen sm {
+//     #studentGrid > .card:nth-child(3n+2) {
+//         @apply mt-l
+//     }
+// }
 
-@screen md {
-    #studentGrid > .card:nth-child(3n+2) {
-        @apply mt-0
-    }
-}
+// @screen md {
+//     #studentGrid > .card:nth-child(3n+2) {
+//         @apply mt-0
+//     }
+// }
 
-@screen md{
-    #studentGrid > .card:nth-child(even) {
-        @apply mt-l
-    }
-}
+// @screen md{
+//     #studentGrid > .card:nth-child(even) {
+//         @apply mt-l
+//     }
+// }
