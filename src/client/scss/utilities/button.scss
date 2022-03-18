@@ -15,13 +15,32 @@
 
 button {
     border-radius: 3px;
-  }
+}
+
+button:hover {
+  opacity: .7;
+}
   
-  .btn-light-inactive {
-    border: 2px solid black;
-    padding: 0.5rem 1rem;
-  }
-  
-  .btn-info {
-    font-size: 1rem;
-  }
+.btn-light-inactive {
+  border: 2px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.btn-info {
+  font-size: 1rem;
+}
+
+// PERSONSIDA
+// tillbaka top av screen
+.back {
+  margin-left: -8px;
+  width: 100px;
+}
+// Tillbaka bottom av screen
+.back-2 {
+  margin-left: -8px;
+}
+// Next bottom av screen
+.next {
+  margin-right: -8px;
+}

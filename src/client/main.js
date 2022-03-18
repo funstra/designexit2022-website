@@ -6,6 +6,7 @@ import "./js/section-observer";
 import "./js/student-handler";
 import "./js/timer";
 import "./js/map";
+import "./js/knappar";
 
 // Hamburger
 document.querySelector("body > header > nav").addEventListener("click", e => {

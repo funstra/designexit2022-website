@@ -7,9 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{title or metadata.title}}</title>
         <link rel="stylesheet" href="https://use.typekit.net/bqb5gxu.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+        <link 
+            rel="stylesheet" 
+            href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""
+        />
+        <script 
+            src="https://kit.fontawesome.com/4e48aa3ca2.js" 
+            crossorigin="anonymous">
+        </script>
         {% if build.env == "production" %}
             {% viteLinkStylesheetTags "src/client/main.js" %}
             {% viteLinkModulePreloadTags "src/client/main.js" %}
