@@ -27,6 +27,9 @@ body > header {
 [data-menu-state="open"] main {
   overflow-y: hidden;
 }
+[data-menu-state="open"] {
+  pointer-events: none;
+}
 
 main {
   scroll-behavior: smooth;

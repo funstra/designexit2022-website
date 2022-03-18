@@ -21,7 +21,7 @@ L.tileLayer(
 ).addTo(map);
 
 var blackMarker = L.icon({
-  iconUrl: "./assets/map-marker.svg",
+  iconUrl: "./assets/svg/map-marker.svg",
   iconSize: [60, 60],
 });
 

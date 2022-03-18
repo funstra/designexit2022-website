@@ -1,9 +1,12 @@
 {% macro person(student, env) %}
     <div class="card"  w:w="max-xl">
+        {% set studentSlug = (student.fnamn + '-' + student.enamn) | lower %}
         {% if env == "production" %}
-            {% studentImage student %}
+            {% image 'students',
+            studentSlug,
+            'bla' %}
         {% else %}
-            <img src="/assets/img/{{(student.fnamn + '-' + student.enamn) | slug}}.jpg" alt="">
+            <img src="/assets/img/students/{{studentSlug}}.jpg" alt="">
         {% endif %}
         <h3>
             {{student.fnamn}}

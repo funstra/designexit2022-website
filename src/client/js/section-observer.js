@@ -7,7 +7,16 @@ document.querySelectorAll("main > section").forEach(section => {
           document.querySelector("body > header").dataset.current = section.id;
           section.classList.add("intersecting");
           // location.hash = section.id;
-          // history.pushState(null, null, `#${section.id}`);
+          if (location.hash != `#${section.id}`) {
+            // history.pushState(null, null, `/#${section.id}`);
+            history.replaceState(null, null, `/#${section.id}`);
+            // location.replace(`#${section.id}`);
+          }
+          if (section.id === "vilka-ar-vi" || section.id === "vernissage") {
+            import("./map");
+            console.log("imported map");
+          }
+          // location.pathname = `/#${section.id}`
         } else if (!entry.isIntersecting) {
           section.classList.remove("intersecting");
         }
@@ -19,11 +28,15 @@ document.querySelectorAll("main > section").forEach(section => {
   );
   obs.observe(section);
 });
-
-window.addEventListener("popstate", e => {
-  if (!location.hash) {
-    // location.hash = "start";
-  } else {
-    // location.hash = location.hash.replace("#", "");
-  }
-});
+// addEventListener("popstate", e => {
+//   // e.preventDefault();
+//   console.log(e);
+//   // console.log(e);
+//   // location.hash = location.hash.replace("#", "");
+//   if (!location.hash) {
+//     // location.hash = "start";
+//   } else {
+//     console.log(location.hash);
+//     location.hash = location.hash.replace("#", "");
+//   }
+// });

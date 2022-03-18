@@ -5,11 +5,22 @@ import "virtual:windi-utilities.css";
 import "./js/section-observer";
 import "./js/student-handler";
 import "./js/timer";
-import "./js/map";
-
+const impMap = () => {
+  if (location.hash === "#vernissage" || location.hash === "#vilka-ar-vi") {
+    import("./js/map");
+    console.log("imported map");
+    removeEventListener("popstate", impMap);
+  }
+};
+// addEventListener("hashchange", e => console.log(location.hash));
 // Hamburger
+addEventListener("popstate", impMap);
 document.querySelector("body > header > nav").addEventListener("click", e => {
   const docElement = document.documentElement;
   const state = docElement.dataset.menuState;
   docElement.dataset.menuState = state ? "" : "open";
+  if (e.target.tagName === "A") {
+    e.preventDefault();
+    location.replace(e.target.href);
+  }
 });
