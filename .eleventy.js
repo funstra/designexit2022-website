@@ -16,10 +16,10 @@ module.exports = function (eleventyConfig) {
 
   // passthrough - -
   eleventyConfig.addPassthroughCopy("./assets/fonts");
-  if (process.env.NODE_ENV === "production") {
+  eleventyConfig.addPassthroughCopy("./assets/svg/map-marker.svg");
+  if (process.env.NODE_ENV !== "production") {
     eleventyConfig.addPassthroughCopy("./assets/img");
   }
-  eleventyConfig.addPassthroughCopy("./assets/svg/map-marker.svg");
 
   // v11te - - -
   // TODO make this a 11ty plugin
