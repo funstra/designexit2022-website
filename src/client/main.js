@@ -12,7 +12,6 @@ const impMap = () => {
     removeEventListener("popstate", impMap);
   }
 };
-// addEventListener("hashchange", e => console.log(location.hash));
 // Hamburger
 addEventListener("popstate", impMap);
 document.querySelector("body > header > nav").addEventListener("click", e => {

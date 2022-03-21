@@ -5,8 +5,6 @@
 @screen sm {
   #studentGrid > * > button {
     display: block;
-    // border-radius: 10px;
-    // border: 2px solid black;
     width: 100%;
     padding-top: var(--space-3xs);
     padding-bottom: var(--space-3xs);
@@ -23,10 +21,24 @@ button {
 }
 
 .btn-light-inactive {
-  // border: 2px solid black;
   padding: 0.5rem 1rem;
 }
 
 .btn-info {
   font-size: 1rem;
+}
+
+// PERSONSIDA
+// tillbaka top av screen
+.back {
+  margin-left: -8px;
+  width: 100px;
+}
+// Tillbaka bottom av screen
+.back-2 {
+  margin-left: -8px;
+}
+// Next bottom av screen
+.next {
+  margin-right: -8px;
 }
