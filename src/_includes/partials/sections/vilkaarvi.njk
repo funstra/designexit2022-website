@@ -1,9 +1,10 @@
 <section class="vilkaarvi" id="vilka-ar-vi">
     <h2>Vilka är vi?</h2>
-    <div id="studentGrid" class="content grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-s gap-y-s justify-items-center">
+    <div id="studentGrid" class="content grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-s gap-y-s items-start">
 
         {% import 'macros/cards.njk' as cards %}
 
+        {{ studenter | log }}
         {% for student in studenter %}
             {{cards.person(student,build.env)}}
         {% endfor %}

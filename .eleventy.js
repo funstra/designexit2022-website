@@ -17,8 +17,9 @@ module.exports = function (eleventyConfig) {
   // passthrough - -
   eleventyConfig.addPassthroughCopy("./assets/fonts");
   eleventyConfig.addPassthroughCopy("./assets/svg/map-marker.svg");
+  eleventyConfig.addPassthroughCopy("./assets/img");
   if (process.env.NODE_ENV !== "production") {
-    eleventyConfig.addPassthroughCopy("./assets/img");
+    eleventyConfig.addPassthroughCopy("./assets/alster");
   }
 
   // v11te - - -

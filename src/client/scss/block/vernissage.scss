@@ -9,14 +9,15 @@
 }
 
 .leaflet-control-attribution > a {
-  @apply text-accent #{!important};
+  // @apply text-accent #{!important};
+  @apply text-accent-perm #{!important};
 }
 
 .timer-deadline-txt {
   font-size: 2.5rem;
   font-weight: 500;
   // color: white;
-  @apply text-primary;
+  // @apply text-primary;
 
   @media only screen and (min-width: 62rem) {
     font-size: 3.5rem;

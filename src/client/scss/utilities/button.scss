@@ -3,20 +3,34 @@
 }
 
 @screen sm {
-  #studentGrid > * > button {
-    display: block;
-    width: 100%;
-    padding-top: var(--space-3xs);
-    padding-bottom: var(--space-3xs);
+  #studentGrid > * > {
+    button,
+    .button {
+      display: block;
+      width: 100%;
+      padding-top: var(--space-3xs);
+      padding-bottom: var(--space-3xs);
+    }
   }
 }
 
-button {
+button,
+.button {
   &:not(.hamburger) {
     border-radius: 3px;
     @apply border-accent;
     border-width: 2px;
     border-style: solid;
+    text-align: center;
+    @apply px-s;
+  }
+}
+button,
+.button {
+  &:not(.hamburger) {
+    &:hover {
+      @apply bg-accent text-primary shadow-s;
+    }
   }
 }
 

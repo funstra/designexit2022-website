@@ -1,0 +1,8 @@
+#designexit {
+  article {
+    column-count: 1;
+    @media screen and (min-width: 960px) {
+      column-count: 2;
+    }
+  }
+}

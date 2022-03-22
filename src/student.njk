@@ -1,0 +1,176 @@
+---
+layout: layouts/base.njk
+pagination:
+    data: studenter
+    size: 1
+    alias: student
+    addAllPagesToCollections: true
+permalink: "/student/{{(student.fnamn + '-' + student.enamn) | slug}}/"
+
+---
+<section id="personligsida" class="flex flex-col justify-center flow">
+
+    <!--Tillbakaknappen-->
+    <div class="btn back">
+        <a href="#"><img src="assets/icon-left-black.png">Tillbaka</a>
+    </div>
+
+    <!--Porträtt-->
+
+    <div class="personlig-wrapper">
+        <img src="/assets/alster/{{student.fnamn + '-' + student.enamn}}/portrait.png" alt="">
+        {# <div class="portratt-lg"></div>
+        <div class="portratt-sm"> #}
+    </div>
+
+    <!--Beskrivning-->
+    <div class="[ personlig-content ] [ flow ]">
+        <h1>{{student.fnamn}}
+            {{student.enamn}}</h1>
+        <div onclick="show_hide()" id="om-btn" class="om-btn">
+            <div id="knapp-2" class="knapp-2">PORTFOLIO</div>
+            <div id="knapp-1" class="knapp-1">OM</div>
+        </div>
+
+        <p id="om">{{student.beskrivning}}</p>
+
+        <!--Grid-->
+
+        <div id="portfolio" class="personlig-grid">
+
+            <!--Thumbnail-->
+
+            <a href="#img1" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio1.jpg" alt="">
+                <div class="info">
+                    <p>Verk Exempel 1</p>
+                </div>
+            </a>
+
+            <!--Target Lightbox-->
+
+            <div class="lightbox" id="img1">
+                <a href="#img6" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png">
+                </a>
+                <a href="#" class="btn-close">
+                    <img src="assets/icon-stäng.png">
+                </a>
+                <img src="assets/portfolio1.jpg">
+                <a href="#img2" class="light-btn btn-next">
+                    <img src="assets/icon-right.png">
+                </a>
+
+            </div>
+
+            <a href="#img2" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio2.jpg">
+                <div class="info">
+                    <p>Verk Exempel 2</p>
+                </div>
+            </a>
+            <div class="lightbox" id="img2">
+                <a href="#img1" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png"></a>
+                <a href="#" class="btn-close"><img src="assets/icon-stäng.png"></a>
+                <img src="assets/portfolio2.jpg">
+                <a href="#img3" class="light-btn btn-next"><img src="assets/icon-right.png"></a>
+            </div>
+
+            <a href="#img3" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio3.jpg">
+                <div class="info">
+                    <p>Verk Exempel 3</p>
+                </div>
+            </a>
+            <div class="lightbox" id="img3">
+                <a href="#img2" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png"></a>
+                <a href="#" class="btn-close"><img src="assets/icon-stäng.png"></a>
+                <img src="assets/portfolio3.jpg">
+                <a href="#img4" class="light-btn btn-next"><img src="assets/icon-right.png"></a>
+            </div>
+            <a href="#img4" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio4.jpg">
+                <div class="info">
+                    <p>Verk Exempel 4</p>
+                </div>
+            </a>
+            <div class="lightbox" id="img4">
+                <a href="#img3" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png"></a>
+                <a href="#" class="btn-close"><img src="assets/icon-stäng.png"></a>
+                <img src="assets/portfolio4.jpg">
+                <a href="#img5" class="light-btn btn-next"><img src="assets/icon-right.png"></a>
+            </div>
+
+            <a href="#img5" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio5.jpg">
+                <div class="info">
+                    <p>Verk Exempel 5</p>
+                </div>
+            </a>
+            <div class="lightbox" id="img5">
+                <a href="#img4" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png"></a>
+                <a href="#" class="btn-close"><img src="assets/icon-stäng.png"></a>
+                <img src="assets/portfolio5.jpg">
+                <a href="#img6" class="light-btn btn-next"><img src="assets/icon-right.png"></a>
+            </div>
+
+            <a href="#img6" class="thumb-wrapper">
+                <img class="thumb" src="assets/portfolio6.jpg">
+                <div class="info">
+                    <p>Verk Exempel 6</p>
+                </div>
+            </a>
+            <div class="lightbox" id="img6">
+                <a href="#img5" class="light-btn btn-prev">
+                    <img src="assets/icon-left.png"></a>
+                <a href="#" class="btn-close"><img src="assets/icon-stäng.png"></a>
+                <img src="assets/portfolio6.jpg">
+                <a href="#img1" class="light-btn btn-next"><img src="assets/icon-right.png"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Sociala Medier-->
+<div class="socials-wrapper">
+    <div class="socials-icon">
+        <div>
+
+            {% if student.links.instagram %}
+                <a  href="{{student.links.instagram}}">
+                    <i class="fa-brands fa-instagram-square" ></i>
+                </a>
+            {% endif %}
+            {% if student.links.facebook %}
+                <a href="{{student.links.facebook}}">
+                    <i class="fa-brands fa-facebook-square"></i>
+                </a>
+            {% endif %}
+            {% if student.links.linkedin %}
+                <a href="{{student.links.linkedin}}">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+    <a class="personlig-hemsida" href="#">klasgrahns.se</a>
+</div>
+
+<!--Föregående och nästa-knappar-->
+
+<div class="personliga-knappar">
+    <div class="btn back-2">
+        <a href="#"><img class="black-icon" src="assets/icon-left-black.png">Föregående</a>
+    </div>
+    <div class="btn">
+        <a class="next" href="#">Nästa<img src="assets/icon-right-black.png"></a>
+
+    </div>
+</div>
+
+</section>

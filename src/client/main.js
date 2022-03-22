@@ -19,7 +19,7 @@ document.querySelector("body > header > nav").addEventListener("click", e => {
   const state = docElement.dataset.menuState;
   docElement.dataset.menuState = state ? "" : "open";
   if (e.target.tagName === "A") {
-    e.preventDefault();
-    location.replace(e.target.href);
+    // e.preventDefault();
+    // location.assign(e.target.href);
   }
 });

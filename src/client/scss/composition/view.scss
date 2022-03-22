@@ -3,17 +3,17 @@
 
   --spacing: 1em;
   &.flex {
-    gap: var(--spacing);
+    gap: var(--space-xl);
     flex-direction: column;
     > * {
       flex-basis: 100%;
-      flex-shrink: 0;
+      // flex-shrink: 0;
     }
   }
   &:not(.flex) {
     > * {
       margin-top: var(--spacing);
-      min-height: 100%;
+      // min-height: 100%;
     }
   }
   > * {

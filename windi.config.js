@@ -19,6 +19,8 @@ export default {
     colors: {
       primary: withOpacityValue("--primary"),
       accent: withOpacityValue("--accent"),
+      "primary-perm": withOpacityValue("--primary-perm"),
+      "accent-perm": withOpacityValue("--accent-perm"),
       ternary: withOpacityValue("--ternary"),
     },
     screens: {
@@ -42,6 +44,10 @@ export default {
       xl: "var(--space-xl)",
       "2xl": "var(--space-2xl)",
     },
+    boxShadow: {
+      xs: "0 0 0.5rem 0.25rem hsl(var(--accent) / 0.02)",
+      s: "0 0 0.6rem 0.25rem hsl(var(--accent) / 0.04)",
+    },
   },
   plugins: [
     plugin(function ({ addBase, theme }) {
@@ -49,7 +55,7 @@ export default {
         body: {
           lineHeight: "1",
           "font-family": "forma-djr-text,sans-serif",
-          "font-style": "normal"
+          "font-style": "normal",
         },
         p: { fontSize: "var(--step-0)", fontWeight: "300" },
         button: { fontSize: "var(--step-0)", fontWeight: "300" },

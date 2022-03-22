@@ -1,14 +1,14 @@
-{% macro right(n) %}
+{% macro right(n, stroke, fill,yoffset) %}
     <svg
   width="100%"
   height="100%"
   viewBox="0 0 1000 866"
   preservAspectRatio="xMidYMin">
-        <g fill="transparent" stroke="hsl(var(--accent))" transform="translate(0,-70)">
-            {% for i in range(0, n) %}
+        <g fill="{{fill}}" stroke="{{stroke}}" transform="translate(0,{{yoffset}})">
+            {% for i in range(1, n+1) %}
                 {% set f = (i / n) %}
                 {% set s = f %}
-                {% set ox = (1 - s) * 500 %}
+                {% set ox = (1 - s) * 500 %}    
                 {% set oy = (1 - s) * 577.3 %}
                 <polygon vector-effect="non-scaling-stroke" points="0,866 1000,866 500,0" transform="translate({{ox}} {{oy}}) scale({{s}}) "/>
             {% endfor %}

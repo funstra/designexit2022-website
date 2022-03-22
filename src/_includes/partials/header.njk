@@ -1,5 +1,5 @@
 <header
-      data-current=""
+      data-current="{{'student' if '/student/' in page.url else ''}}"
       class="flex justify-between py-2 border-b-2 border-black">
   <button w:m="x-[200px]" onclick="
       document.documentElement.classList.toggle('dark')
@@ -42,13 +42,13 @@
     </button>
     <ol  w:opacity="0" w:bg="primary" class=" nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center text-xl">
       <li class="pointer-events-auto">
-        <a href="#start">start</a>
+        <a href="/#start">start</a>
       </li>
       <li class="pointer-events-auto">
-        <a href="#designexit">designexit</a>
+        <a href="/#designexit">designexit</a>
       </li>
       <li class="pointer-events-auto">
-        <a href="#vilka-ar-vi">vilka är vi</a>
+        <a href="/#vilka-ar-vi">vilka är vi</a>
       </li>
     </ol>
   </nav>

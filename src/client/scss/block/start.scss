@@ -1,17 +1,11 @@
 #start {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: 1fr min-content max-content 4fr;
+  @media screen and (min-width: 960px) {
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+  grid-template-columns: 1fr;
 }
-// section {
-//   opacity: 0.5;
-//   transition-property: opacity;
-//   transition-duration: 125ms;
-//   transition-timing-function: ease-outƒ;
-// }
-// section:target {
-//   opacity: 1;
-// }
 
 #start {
   header {
@@ -19,13 +13,12 @@
     flex-direction: column;
     line-height: 1;
     @media screen and (max-width: 512px) {
-      writing-mode: vertical-lr;
-      align-items: flex-start;
+      // align-items: flex-start;
       h1 {
-        order: 1;
+        // order: 1;
       }
       p {
-        display: none;
+        // display: none;
       }
     }
   }

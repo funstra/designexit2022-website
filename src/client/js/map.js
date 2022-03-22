@@ -25,5 +25,4 @@ var blackMarker = L.icon({
   iconSize: [60, 60],
 });
 
-/*var marker = L.marker([60.60384, 15.63142]).addTo(map);*/
 var marker = L.marker([60.60384, 15.63142], { icon: blackMarker }).addTo(map);

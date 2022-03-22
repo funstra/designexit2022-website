@@ -1,28 +1,58 @@
-<section id="designexit" class="flex gap-s p-s items-center">
-    <div class="flex items-end">
-        <div class="[ about-txt ] [ flex flex-col flow flex-grow justify-center ]">
-            <article>
-                <h2>Vad är Designexit?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci eu lobortis elementum nibh. Vulputate sapien nec sagittis aliquam malesuada.</p>
-            </article>
-            <article>
-                <h2>Årets tema</h2>
-                <p>Låt oss presentera årets koncept: Triangeln! En av de grundläggande geometriska formerna som symboliserar balans, tillväxt och stabilitet. Den avskalade designen kan vid första anblick upplevas simpel, men under utbildningen har vi lärt oss att göra det enkla betydelsefullt. Lagren på triangeln symboliserar all den kunskap vi samlat på oss genom utbildningen och dess centrum bli ett blickfång där vi skymtar ”ljuset i tunneln” eller examen.</p>
-            </article>
-        </div>
-        <div class="[ about-img ] [ flex flex-shrink-0 basis-[50%] md:block hidden justify-center ]">
-            <svg fill="hsl(var(--accent))" viewBox="0 0 3400 3103" >
-                <path d="M3396.2,3105.2H0L1698.1,164L3396.2,3105.2z M11.3,3098.7h3373.5L1698.1,177L11.3,3098.7z"/>
-                <path d="M3265.4,3030.3H130.8L1698.1,324.1L3265.4,3030.3z M150.9,3018.6h3094.4L1698.1,347.3L150.9,3018.6z"/>
-                <path d="M3134.6,2955.3h-2873L1698.1,484.2L3134.6,2955.3z M290.6,2938.6h2815L1698.1,517.4L290.6,2938.6z"/>
-                <path d="M3003.9,2880.4H392.3L1698.1,644.4L3003.9,2880.4z M430.3,2858.6h2535.7L1698.1,687.6L430.3,2858.6z"/>
-                <path d="M1698.1,2805.5H523l1175.1-2001l1175.1,2000.9L1698.1,2805.5z M570,2778.7h2256.3l-1128.1-1921L570,2778.7z"/>
-                <path d="M2742.5,2730.5H653.7L1698.1,964.9L2742.5,2730.5z M709.7,2698.6h1976.8l-988.4-1671L709.7,2698.6z"/>
-                <path d="M2611.9,2655.6H784.3l913.8-1530.3L2611.9,2655.6z M849.5,2618.6h1697.1l-848.6-1421.1L849.5,2618.6z"/>
-                <path d="M2481.5,2580.7H914.8l783.3-1294.9L2481.5,2580.7z M989.5,2538.6h1417.3l-708.6-1171.4L989.5,2538.6z"/>
-                <path d="M2351.1,2505.8H1045.1l653-1059.1L2351.1,2505.8z M1129.7,2458.6h1137l-568.5-921.9L1129.7,2458.6z"/>
-                <path d="M2221.2,2430.8H1175l523.2-822.7L2221.2,2430.8z M1270.2,2378.5h855.9l-427.9-673L1270.2,2378.5z"/>
-            </svg>
-        </div>
-    </div>
+<section
+  id="designexit"
+  class="flex flex-col gap-l p-s items-center"
+  w:m="b-2xl"
+>
+  <article class="flow">
+    <h2>Vad är Designexit?</h2>
+    <p>
+      Designexit är en årlig examensutställning för studenter som läser sista
+      året Informationsdesign på Högskolan Dalarna. Utställningen är till för
+      att ge besökarna en inblick i vad vi gjort och vad vi kan efter tre års
+      studier. I år kommer utställningen kunna ses under ett fysiskt vernissage
+      den 1 juni men även i en virtuell miljö här på hemsidan.
+    </p>
+    <h2>Årets tema</h2>
+    <p>
+      Årets framtagna koncept är baserat på en grafisk inriktning där triangeln
+      är den starka formen som lyfts fram. Triangeln har flera betydelser och
+      kan symbolisera balans, tillväxt och stabilitet. Lagren symboliserar all
+      kunskap som vår klass har samlat på sig under utbildningen. Intentionen
+      med designen är att lyfta varje elevs individuella arbeten i kombination
+      med en färgskala som främjar tillgänglighet.
+    </p>
+  </article>
+  {% import "macros/triangle.njk" as tri %}
+  <svg
+    width="100%"
+    height="30rem"
+    viewBox="0 0 100% 1024"
+    preserveAspectRatio="xMidYMin"
+  >
+    <defs>
+      <pattern
+        id="pattern-dots"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        patternUnits="userSpaceOnUse"
+      >
+        <g fill="hsl(var(--accent))">
+          <!-- <circle cx="4" cy="4" r="2"  />
+          <circle cx="12" cy="12" r="2" /> -->
+          <!-- <line x1="0" x2="16" y1="0" y2="16" stroke="black" /> -->
+          <!-- <line x1="0" x2="16" y1="16" y2="0" stroke="black" /> -->
+          <line x1="0" x2="16" y1="8" y2="8" transform="rotate(-60)" transform-origin="8 8 " stroke="black"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-dots)" />
+    {# <g>
+      {% for l in range(0, 40) %}
+        {% set x = 100 / l %}
+        <line x1="{{l}}" x2="{{l + 5}}"/>
+      {% endfor %}
+    </g> #}
+    <g stroke-width="4">{{ tri.right(1, "", "hsl(var(--primary))") }}</g>
+  </svg>
 </section>
