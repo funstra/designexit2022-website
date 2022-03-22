@@ -4,7 +4,6 @@
 
         {% import 'macros/cards.njk' as cards %}
 
-        {{ studenter | log }}
         {% for student in studenter %}
             {{cards.person(student,build.env)}}
         {% endfor %}

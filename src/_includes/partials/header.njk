@@ -1,20 +1,62 @@
 <header
-      data-current="{{'student' if '/student/' in page.url else ''}}"
-      class="flex justify-between py-2 border-b-2 border-black">
-  <button w:m="x-[200px]" onclick="
-      document.documentElement.classList.toggle('dark')
-      ">dark</button>
-  <nav
-        id="site-nav"
-        class="flex w-full">
-    <button aria-label="navigera" class="hamburger ml-auto relative z-50" w:pointer="auto">
+  data-current="{{'student' if '/student/' in page.url else ''}}"
+  class="flex justify-between py-2 border-b-2 border-black"
+>
+  <button
+    class="theme-toggle ml-auto"
+    id="theme-toggle"
+    title="Byter mellan ljust och mörkt tema"
+    aria-label="auto"
+    onclick="
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', localStorage.getItem('theme') == 'dark' ? 'light' : 'dark' );
+      "
+  >
+    <svg
+      aria-hidden="true"
+      class="icon-toggle"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <mask class="moon" id="moon-mask">
+        <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+        <circle cx="24" cy="10" r="6" fill="black"></circle>
+      </mask>
+      <circle
+        class="sun"
+        cx="12"
+        cy="12"
+        r="6"
+        mask="url(#moon-mask)"
+        fill="currentColor"
+      ></circle>
+      <g class="sun-beams" stroke="currentColor">
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </g>
+    </svg>
+  </button>
+  <nav id="site-nav" class="flex w-full pointer-events-none">
+    <button
+      aria-label="navigera"
+      class="hamburger ml-auto relative z-50"
+      w:pointer="auto"
+    >
       <svg
-            aria-hidden="true"
-            class=""
-            width="2.5rem"
-            height="2rem"
-            viewBox="0 0 48 32"
-            preservAspectRatio="xMidYMid">
+        aria-hidden="true"
+        class=""
+        width="2.5rem"
+        height="2rem"
+        viewBox="0 0 48 32"
+        preservAspectRatio="xMidYMid"
+      >
         <style>
           .hamburger line {
             transition-property: transform, opacity;
@@ -34,13 +76,17 @@
           }
         </style>
         <g stroke="hsl(var(--accent))" stroke-width="4">
-          <line x1="0" x2="48" y1="1" y2="1"/>
-          <line x1="0" x2="48" y1="16" y2="16"/>
-          <line x1="0" x2="48" y1="31" y2="31"/>
+          <line x1="0" x2="48" y1="1" y2="1" />
+          <line x1="0" x2="48" y1="16" y2="16" />
+          <line x1="0" x2="48" y1="31" y2="31" />
         </g>
       </svg>
     </button>
-    <ol  w:opacity="0" w:bg="primary" class=" nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center text-xl">
+    <ol
+      w:opacity="0"
+      w:bg="primary"
+      class="nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center text-xl"
+    >
       <li class="pointer-events-auto">
         <a href="/#start">start</a>
       </li>

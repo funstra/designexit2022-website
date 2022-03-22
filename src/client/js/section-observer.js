@@ -8,6 +8,13 @@ const init = () => {
               section.id;
             section.classList.add("intersecting");
             if (location.hash != `#${section.id}`) {
+              if (
+                !(history.state === "student" && section.id === "vilka-ar-vi")
+              ) {
+                console.log(location.hash);
+                console.log("replace");
+                history.replaceState(null, null, `#${section.id}`);
+              }
             }
             if (section.id === "vilka-ar-vi" || section.id === "vernissage") {
               import("./map");

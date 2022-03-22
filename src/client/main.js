@@ -14,12 +14,36 @@ const impMap = () => {
 };
 // Hamburger
 addEventListener("popstate", impMap);
+addEventListener("popstate", e => {
+  console.log(e.state);
+  console.log("popin");
+  if (e.state === "student") {
+    location.reload();
+  }
+});
+document.querySelector("#vilka-ar-vi")?.addEventListener("click", e => {
+  if (e.target.tagName === "A" && e.target.origin == location.origin) {
+    e.preventDefault();
+    history.replaceState("student", null, `/#${e.target.closest(".card").id}`);
+    history.pushState("student", null, e.target.href);
+    location.reload();
+  }
+});
+if (location.hash) {
+  document.querySelector("main").style.scrollBehavior = "auto";
+  document.querySelector(location.hash).scrollIntoView({
+    behavior: "auto",
+  });
+  setTimeout(() => {
+    document.querySelector("main").style.scrollBehavior = "smooth";
+  }, 1);
+}
 document.querySelector("body > header > nav").addEventListener("click", e => {
   const docElement = document.documentElement;
   const state = docElement.dataset.menuState;
   docElement.dataset.menuState = state ? "" : "open";
   if (e.target.tagName === "A") {
-    // e.preventDefault();
-    // location.assign(e.target.href);
+    e.preventDefault();
+    location.replace(e.target.href);
   }
 });

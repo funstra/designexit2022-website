@@ -1,3 +1,15 @@
+const { readFileSync, readdirSync } = require("fs");
+const { resolve } = require("path");
+const slug = require('slug')
+const dir = resolve(__dirname, "../../", "assets", "alster");
+function alst(student) {
+  const s = slug(`${student.fnamn}-${student.enamn}`);
+  const files = readdirSync(resolve(dir, s));
+  const alsterFiles = files
+    .filter(f => f.endsWith(".png") && f.includes("alster"))
+    .map(f => `alster/${s}/${f}`);
+  return alsterFiles;
+}
 module.exports = () => {
   const studenter = [
     {
@@ -14,6 +26,9 @@ module.exports = () => {
         flicker: "",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Emma",
@@ -28,6 +43,9 @@ module.exports = () => {
         behance: "",
         flicker: "",
         hemsida: "",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
     {
@@ -44,6 +62,9 @@ module.exports = () => {
         flicker: "",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Natthaphat",
@@ -56,6 +77,9 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         hemsida: "",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
     {
@@ -72,6 +96,9 @@ module.exports = () => {
         flicker: "https://www.flickr.com/photos/gccostello/albums",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Cecilia",
@@ -86,6 +113,9 @@ module.exports = () => {
         behance: "",
         flicker: "",
         hemsida: "",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
     {
@@ -102,6 +132,9 @@ module.exports = () => {
         flicker: "",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Fredrik",
@@ -116,6 +149,9 @@ module.exports = () => {
         behance: "https://www.behance.net/fredrikjohanss11",
         flicker: "",
         hemsida: "www.johanssonfredrik.com",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
     {
@@ -132,6 +168,9 @@ module.exports = () => {
         flicker: "",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Mia",
@@ -147,6 +186,9 @@ module.exports = () => {
         flicker: "",
         hemsida: "",
       },
+      alster: function () {
+        return alst(this);
+      },
     },
     {
       fnamn: "Amanda",
@@ -159,6 +201,9 @@ module.exports = () => {
         instagram: "https://www.instagram.com/amandasellbergdesign/",
         dribbble: "",
         hemsida: "",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
     {
@@ -174,6 +219,9 @@ module.exports = () => {
         behance: "",
         flicker: "",
         hemsida: "",
+      },
+      alster: function () {
+        return alst(this);
       },
     },
   ];

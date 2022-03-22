@@ -1,11 +1,12 @@
 {% macro person(student, env) %}
-    <div class="card | shadow-xs flow p-2xs rounded-s"  w:w="max-xl">
-        {% set studentPath = (student.fnamn + '-' + student.enamn + '/') | lower %}
-        {% set studentSlug = (student.fnamn + '-' + student.enamn) | lower %}
+    {% set studentPath = (student.fnamn + '-' + student.enamn) | slug + '/' %}
+    {% set studentSlug = (student.fnamn + '-' + student.enamn) | slug %}
+    <div id="{{studentSlug}}" class="card | shadow-xs flow p-2xs rounded-s"  w:w="max-xl">
         {% if env == "production" %}
             {% image 'alster',
             studentPath + 'portrait.png',
-            "Porträtt av {{student.fnamn}} {{student.enamn}}" %}
+            "Porträtt av {{student.fnamn}} {{student.enamn}}",
+            studentSlug %}
         {% else %}
             <img src="/assets/alster/{{studentPath + 'portrait.png'}}" alt="">
         {% endif %}

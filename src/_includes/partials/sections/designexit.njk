@@ -3,24 +3,28 @@
   class="flex flex-col gap-l p-s items-center"
   w:m="b-2xl"
 >
-  <article class="flow">
-    <h2>Vad är Designexit?</h2>
-    <p>
-      Designexit är en årlig examensutställning för studenter som läser sista
-      året Informationsdesign på Högskolan Dalarna. Utställningen är till för
-      att ge besökarna en inblick i vad vi gjort och vad vi kan efter tre års
-      studier. I år kommer utställningen kunna ses under ett fysiskt vernissage
-      den 1 juni men även i en virtuell miljö här på hemsidan.
-    </p>
-    <h2>Årets tema</h2>
-    <p>
-      Årets framtagna koncept är baserat på en grafisk inriktning där triangeln
-      är den starka formen som lyfts fram. Triangeln har flera betydelser och
-      kan symbolisera balans, tillväxt och stabilitet. Lagren symboliserar all
-      kunskap som vår klass har samlat på sig under utbildningen. Intentionen
-      med designen är att lyfta varje elevs individuella arbeten i kombination
-      med en färgskala som främjar tillgänglighet.
-    </p>
+  <article class="" w:flex="~ col md:row" w:grid="gap-gap-l">
+    <div>
+      <h2 w:text="space-nowrap" >Vad är Designexit?</h2>
+      <p>
+        Designexit är en årlig examensutställning för studenter som läser sista
+        året Informationsdesign på Högskolan Dalarna. Utställningen är till för
+        att ge besökarna en inblick i vad vi gjort och vad vi kan efter tre års
+        studier. I år kommer utställningen kunna ses under ett fysiskt vernissage
+        den 1 juni men även i en virtuell miljö här på hemsidan.
+      </p>
+    </div>
+    <div>
+      <h2>Årets tema</h2>
+      <p>
+        Årets framtagna koncept är baserat på en grafisk inriktning där triangeln
+        är den starka formen som lyfts fram. Triangeln har flera betydelser och
+        kan symbolisera balans, tillväxt och stabilitet. Lagren symboliserar all
+        kunskap som vår klass har samlat på sig under utbildningen. Intentionen
+        med designen är att lyfta varje elevs individuella arbeten i kombination
+        med en färgskala som främjar tillgänglighet.
+      </p>
+    </div>
   </article>
   {% import "macros/triangle.njk" as tri %}
   <svg
@@ -31,7 +35,7 @@
   >
     <defs>
       <pattern
-        id="pattern-dots"
+        id="pattern-dots-1"
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -45,8 +49,24 @@
           <line x1="0" x2="16" y1="8" y2="8" transform="rotate(-60)" transform-origin="8 8 " stroke="black"/>
         </g>
       </pattern>
+      <pattern
+        id="pattern-dots-2"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        patternUnits="userSpaceOnUse"
+      >
+        <g fill="hsl(var(--accent))">
+          <!-- <circle cx="4" cy="4" r="2"  />
+          <circle cx="12" cy="12" r="2" /> -->
+          <!-- <line x1="0" x2="16" y1="0" y2="16" stroke="black" /> -->
+          <!-- <line x1="0" x2="16" y1="16" y2="0" stroke="black" /> -->
+          <line x1="0" x2="16" y1="8" y2="8" transform="rotate(60)" transform-origin="8 8 " stroke="black"/>
+        </g>
+      </pattern>
     </defs>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-dots)" />
+    <rect x="0" y="0" width="50%" height="100%" fill="url(#pattern-dots-1)"/>
+    <rect x="50%" y="0" width="50%" height="100%" fill="url(#pattern-dots-2)"/>
     {# <g>
       {% for l in range(0, 40) %}
         {% set x = 100 / l %}
