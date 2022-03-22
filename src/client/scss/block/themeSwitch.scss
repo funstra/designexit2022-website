@@ -2,7 +2,6 @@
 
 .theme-toggle {
   --size: 2rem;
-  --icon-fill: rgb(0, 0, 0);
 
   background: none;
   border: none;
@@ -25,10 +24,6 @@
     stroke-linecap: round;
   }
 
-  html[data-theme="dark"] & {
-    --icon-fill: rgb(255, 255, 255);
-  }
-
   @media (hover: none) {
     --size: 48px;
   }
@@ -39,13 +34,11 @@
     transform-origin: center center;
   }
   & > :is(.moon, .sun) {
-    fill: var(--icon-fill);
   }
   & > .sun-beams {
-    stroke: var(--icon-fill);
     stroke-width: 2px;
   }
-  html[data-theme="dark"] & {
+  html.dark & {
     & > .sun {
       transform: scale(1.75);
     }
@@ -54,10 +47,6 @@
     }
     & > .moon > circle {
       transform: translateX(-7px);
-      @supports (cx: 1) {
-        transform: translateX(0);
-        cx: 17;
-      }
     }
   }
 
@@ -69,11 +58,8 @@
   }
   & .moon > circle {
     transition: transform 0.25s var(--ease-out-5);
-    @supports (cx: 1) {
-      transition: cx 0.25s var(--ease-out-5);
-    }
   }
-  html[data-theme="dark"] & {
+  html.dark & {
     & > .sun {
       transform: scale(1.75);
       transition-timing-function: var(--ease-3);

@@ -16,7 +16,7 @@
 
 button,
 .button {
-  &:not(.hamburger) {
+  &:not(.hamburger,#theme-toggle) {
     border-radius: 3px;
     @apply border-accent;
     border-width: 2px;
@@ -27,7 +27,7 @@ button,
 }
 button,
 .button {
-  &:not(.hamburger) {
+  &:not(.hamburger,#theme-toggle) {
     &:hover {
       @apply bg-accent text-primary shadow-s;
     }
