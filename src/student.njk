@@ -9,7 +9,6 @@ permalink: "/student/{{(student.fnamn + '-' + student.enamn) | slug}}/"
 
 ---
 
-{# <p id="om">{{student.beskrivning}}</p> #}
 {% set alster = student.alster() %}
 <section id="personligsida" class="flex flex-col justify-center flow">
     <div class="btn back">
@@ -39,6 +38,8 @@ permalink: "/student/{{(student.fnamn + '-' + student.enamn) | slug}}/"
             <div id="knapp-1" class="knapp-1">OM</div>
         </div>
 
+        <p id="om">{{student.beskrivning}}</p>
+        
         <div id="portfolio" class="personlig-grid">
             {% if (alster | length) != 0 %}
                 {% for alst in alster %}
