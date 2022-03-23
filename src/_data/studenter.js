@@ -148,7 +148,7 @@ module.exports = () => {
         dribbble: "",
         behance: "https://www.behance.net/fredrikjohanss11",
         flicker: "",
-        hemsida: "www.johanssonfredrik.com",
+        hemsida: "https://www.johanssonfredrik.com",
       },
       alster: function () {
         return alst(this);

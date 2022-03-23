@@ -37,6 +37,17 @@ module.exports = function (eleventyConfig) {
   // html minification - -
   eleventyConfig.addTransform("htmlmin", htmlmin);
 
+  // filters - -
+  eleventyConfig.addNunjucksFilter("socials", links => {
+    let l = {};
+    for (const key in links) {
+      if (key !== "hemsida") {
+        l[key] = links[key];
+      }
+    }
+    return l;
+  });
+
   return {
     templateFormats: ["njk", "html"],
     pathPrefix: PATH_PREFIX,

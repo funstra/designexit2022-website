@@ -37,6 +37,7 @@ export default {
       xl: "var(--step-3)",
     },
     spacing: {
+      "3xs": "var(--space-3xs)",
       "2xs": "var(--space-2xs)",
       xs: "var(--space-xs)",
       s: "var(--space-s)",
@@ -46,22 +47,22 @@ export default {
     },
     boxShadow: {
       xs: "0 0 0.5rem 0.25rem hsl(var(--accent) / 0.02)",
-      s: "0 0 0.6rem 0.25rem hsl(var(--accent) / 0.04)",
+      s: "0 0 0.65rem 0.3rem hsl(var(--accent) / 0.06)",
     },
   },
   plugins: [
     plugin(function ({ addBase, theme }) {
       addBase({
         body: {
-          lineHeight: "1",
+          lineHeight: "1.5",
           "font-family": "forma-djr-text,sans-serif",
           "font-style": "normal",
         },
         p: { fontSize: "var(--step-0)", fontWeight: "300" },
         button: { fontSize: "var(--step-0)", fontWeight: "300" },
-        h1: { fontSize: "var(--step-3)", fontWeight: "800" },
-        h2: { fontSize: "var(--step-3)", fontWeight: "800" },
-        h3: { fontSize: "var(--step-2)", fontWeight: "500" },
+        h1: { lineHeight: "1", fontSize: "var(--step-3)", fontWeight: "800" },
+        h2: { lineHeight: "1", fontSize: "var(--step-3)", fontWeight: "800" },
+        h3: { lineHeight: "1", fontSize: "var(--step-2)", fontWeight: "500" },
       });
     }),
   ],

@@ -1,0 +1,7 @@
+{% macro tri(r, m = '0.25') -%}
+    {% set rot = 'transform: rotate(' + r + 'deg);' if r else '' -%}
+    <span 
+style="margin-inline-start: {{m}}em; {{rot}} translateY(-1px);display: inline-block;">
+&blacktriangleleft;
+</span>
+{% endmacro %}

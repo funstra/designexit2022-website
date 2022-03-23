@@ -1,9 +1,18 @@
 @import "fluid.scss";
 
 :root {
-  --primary: 0 0% 100%;
-  --accent: 0 0% 0%;
+  --primary: 0 0% 97.5%;
+  --accent: 0 0% 5%;
   --ternary: 90 70% 80%;
-  --primary-perm: 0 0% 100%;
-  --accent-perm: 0 0% 0%;
+  --primary-perm: 0 0% 97.5%;
+  --accent-perm: 0 0% 5%;
+}
+
+html.dark {
+  --primary: 0 0% 5%;
+  --accent: 0 0% 90%;
+}
+body {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--accent));
 }

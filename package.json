@@ -18,7 +18,7 @@
     "dev": "concurrently npm:dev:*",
     "dev:eleventy": "eleventy --serve --incremental",
     "dev:vite": "vite --host",
-    "build": "npm run build:vite && npm run build:eleventy",
+    "build": "rm -rf '_site' && npm run build:vite && npm run build:eleventy",
     "build:eleventy": "NODE_ENV=production eleventy",
     "build:vite": "NODE_ENV=production vite build",
     "prod": "NODE_ENV=production npm run build && serve _site",

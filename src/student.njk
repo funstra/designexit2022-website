@@ -1,134 +1,95 @@
 ---
 layout: layouts/base.njk
 pagination:
-    data: studenter
-    size: 1
-    alias: student
-    addAllPagesToCollections: true
+  data: studenter
+  size: 1
+  alias: student
+  addAllPagesToCollections: true
 permalink: "/student/{{(student.fnamn + '-' + student.enamn) | slug}}/"
-
 ---
 
-{% set alster = student.alster() %}
-<section id="personligsida" class="flex flex-col justify-center flow">
-    <div class="btn back">
-        <a href="_"><img src="assets/icon-left-black.png">Tillbaka</a>
+{% set studentSlug = (student.fnamn + '-' + student.enamn) | slug %}
+{% set
+alster = student.alster() %}
+
+{# small font triangle #}
+{% import "macros/smol-tri.njk" as smol %}
+
+<section id="personligsida" w:flex="~ col" w:grid="gap-s" w:p="y-xl" class="">
+
+    {# tillbaka #}
+    <a
+        href="/"
+        id="tillbaka"
+        onclick="
+        event.preventDefault()
+        history.pushState('student',null,'/#{{ studentSlug }}')
+        location.reload()">
+        {{smol.tri()}}tillbaka
+    </a>
+
+    {# student #}
+    <div id="student-wrapper" w:grid="gap-2xs">
+
+        {# namn #}
+        <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
+            {{ student.fnamn }}
+            {{ student.enamn }}
+        </h2>
+
+        {# portrait #}
+        <img
+        style="aspect-ratio: 1/1"
+        w:w="full"
+        w:object="cover"
+        w:md="col-start-1 row-start-1 row-span-3 "
+        src="/assets/alster/{{ studentSlug }}/portrait.png"
+        alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+
+        {# beskrivning #}
+        <p w:md="col-start-2 row-start-2">{{ student.beskrivning }}</p>
+
+        {# alster #}
+        <ul id="alster-wrapper" w:grid="gap-3xs" w:md="row-start-3 col-start-2 row-span-3" aria-label="portfolio">
+            {% for alst in alster %}
+                <li w:pos="relative">
+                    <a href="#alster{{loop.index}}" w:pos="absolute" w:w="full" w:h="full" ></a>
+                    <img id="alster{{loop.index}}" src="/assets/{{ alst }}" alt="Ett alster"/>
+                    <a href="#" w:pos="absolute right-s top-s" w:text="xl" w:font="leading-[0]" w:bg="ternary" w:display="hidden">&Cross;</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {# socials #}
+        {% set links = student.links %}
+        <div id="socials" w:md="col-start-1 row-start-4">
+            <h3>Se mer av {{ student.fnamn }}</h3>
+            {% for name, href in links | socials %}
+                {% if href %}
+                    <a href="{{ href }}">{{ name }}</a>
+                {% endif %}
+            {% endfor %}
+            {# hemsida #}
+            {% if links.hemsida %}
+                <br/>
+                <span>hemsida{{smol.tri(r=180)}}
+                    <a w:text="underline-1 underline" href="{{ links.hemsida }}">{{links.hemsida}}</a>
+                </span>
+            {% endif %}
+        </div>
     </div>
 
-    <div class="personlig-wrapper">
-        {# <img src="/assets/alster/{{student.fnamn + '-' + student.enamn}}/portrait.png" alt=""> #}
-        {% set studentPath = (student.fnamn + '-' + student.enamn) | slug + '/' %}
-        {% set studentSlug = (student.fnamn + '-' + student.enamn) | slug %}
-
-        {% if build.env == 'production' %}
-            {% image 'alster',
-            studentPath + 'portrait.png',
-            "Porträtt av" + student.fnamn + student.enamn,
-            studentSlug %}
-        {% else %}
-            <img src="/assets/alster/{{student.fnamn + '-' + student.enamn}}/portrait.png" alt="">
+    {# nav #}
+    <nav w:w="full" w:flex="~" w:justify="between">
+        {# prev #}
+        {% if pagination.href.previous %}
+            <a href="{{ pagination.href.previous }}">
+                {{smol.tri()}}föregående</a>
         {% endif %}
-    </div>
-
-    <div class="[ personlig-content ] [ flow ]">
-        <h1>{{student.fnamn}}
-            {{student.enamn}}</h1>
-        <div onclick="show_hide()" id="om-btn" class="om-btn">
-            <div id="knapp-2" class="knapp-2">PORTFOLIO</div>
-            <div id="knapp-1" class="knapp-1">OM</div>
-        </div>
-
-        <p id="om">{{student.beskrivning}}</p>
-        
-        <div id="portfolio" class="personlig-grid">
-            {% if (alster | length) != 0 %}
-                {% for alst in alster %}
-
-                    <a href="#img1" class="thumb-wrapper">
-                        {% if build.env == 'production' %}
-                            {% image '',
-                            alst,
-                            "Alster av {{student.fnamn}} {{student.enamn}}",
-                            student.fnamn + '-' + student.enamn  %}
-                        {% endif %}
-
-                        <img class="thumb" src="{{alst}}" w:pointer="none" alt="">
-                        <div class="info">
-                            <p>Verk Exempel 1</p>
-                        </div>
-                    </a>
-                    {% if build.env == 'production' %}
-                        <div class="lightbox" id="img1">
-                            <a href="#img6" class="light-btn btn-prev">
-                                <img src="assets/icon-left.png">
-                            </a>
-                            <a href="#" class="btn-close">
-                                <img src="assets/icon-stäng.png">
-                            </a>
-                            {# <img src="{{alst}}"> #}
-                            {% image '',
-                            alst,
-                            "Alster av {{student.fnamn}} {{student.enamn}}",
-                            student.fnamn + '-' + student.enamn  %}
-                            <a href="#img2" class="light-btn btn-next">
-                                <img src="assets/icon-right.png">
-                            </a>
-                        </div>
-                    {% else %}
-                        <div class="lightbox" id="img1">
-                            <a href="#img6" class="light-btn btn-prev">
-                                <img src="assets/icon-left.png">
-                            </a>
-                            <a href="#" class="btn-close">
-                                <img src="assets/icon-stäng.png">
-                            </a>
-                            <img src="{{alst}}">
-                            <a href="#img2" class="light-btn btn-next">
-                                <img src="assets/icon-right.png">
-                            </a>
-                        </div>
-                    {% endif %}
-
-                {% endfor %}
-            {% endif %}
-
-        </div>
-    </div>
-</div>
-
-<div class="socials-wrapper">
-    <div class="socials-icon">
-        <div>
-
-            {% if student.links.instagram %}
-                <a  href="{{student.links.instagram}}">
-                    <i class="fa-brands fa-instagram-square" ></i>
-                </a>
-            {% endif %}
-            {% if student.links.facebook %}
-                <a href="{{student.links.facebook}}">
-                    <i class="fa-brands fa-facebook-square"></i>
-                </a>
-            {% endif %}
-            {% if student.links.linkedin %}
-                <a href="{{student.links.linkedin}}">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-            {% endif %}
-
-        </div>
-    </div>
-    <a class="personlig-hemsida" href="#">klasgrahns.se</a>
-</div>
-
-<div class="personliga-knappar">
-    <div class="btn back-2">
-        <a href="#"><img class="black-icon" src="assets/icon-left-black.png">Föregående</a>
-    </div>
-    <div class="btn">
-        <a class="next" href="#">Nästa<img src="assets/icon-right-black.png"></a>
-
-    </div>
-</div>
-
+        {# next #}
+        {% if pagination.href.next %}
+            <a href="{{ pagination.href.next }}" class={{"ml-auto" if not pagination.href.previous else ""}}
+        >nästa{{smol.tri(r=180)}}</a>
+        {% endif %}
+    </nav>
 </section>

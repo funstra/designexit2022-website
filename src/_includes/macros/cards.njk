@@ -1,7 +1,7 @@
 {% macro person(student, env) %}
     {% set studentPath = (student.fnamn + '-' + student.enamn) | slug + '/' %}
     {% set studentSlug = (student.fnamn + '-' + student.enamn) | slug %}
-    <div id="{{studentSlug}}" class="card | shadow-xs flow p-2xs rounded-s"  w:w="max-xl">
+    <div id="{{studentSlug}}" class="card | shadow-xs dark:shadow-s flow p-2xs rounded-s"  w:w="max-xl">
         {% if env == "production" %}
             {% image 'alster',
             studentPath + 'portrait.png',

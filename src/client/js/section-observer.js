@@ -8,6 +8,7 @@ const init = () => {
               section.id;
             section.classList.add("intersecting");
             if (location.hash != `#${section.id}`) {
+              console.log(history.state);
               if (
                 !(history.state === "student" && section.id === "vilka-ar-vi")
               ) {
