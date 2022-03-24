@@ -43,9 +43,9 @@ exports.viteLinkModulePreloadTags =
 
     // imports
     if (!entryChunk.imports || entryChunk.imports.length === 0) {
-      console.log(
-        `The script for ${entryFilename} has no imports. Nothing to preload.`
-      );
+      // console.log(
+      //   `The script for ${entryFilename} has no imports. Nothing to preload.`
+      // );
     } else {
       s += (
         await Promise.all(
@@ -60,9 +60,9 @@ exports.viteLinkModulePreloadTags =
 
     // dynamic imports
     if (!entryChunk.dynamicImports || entryChunk.dynamicImports.length === 0) {
-      console.log(
-        `The script for ${entryFilename} has no dynamicmports. Nothing to prefetch.`
-      );
+      // console.log(
+      //   `The script for ${entryFilename} has no dynamicmports. Nothing to prefetch.`
+      // );
     } else {
       s += (
         await Promise.all(

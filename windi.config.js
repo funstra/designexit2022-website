@@ -35,6 +35,7 @@ export default {
       s: "var(--step-1)",
       l: "var(--step-2)",
       xl: "var(--step-3)",
+      "2xl": "var(--step-4)",
     },
     spacing: {
       "3xs": "var(--space-3xs)",
@@ -44,6 +45,7 @@ export default {
       l: "var(--space-l)",
       xl: "var(--space-xl)",
       "2xl": "var(--space-2xl)",
+      s2xl: "var(--space-s-2xl)",
     },
     boxShadow: {
       xs: "0 0 0.5rem 0.25rem hsl(var(--accent) / 0.02)",
@@ -59,6 +61,7 @@ export default {
           "font-style": "normal",
         },
         p: { fontSize: "var(--step-0)", fontWeight: "300" },
+        a: { fontSize: "var(--step-0)", fontWeight: "500" },
         button: { fontSize: "var(--step-0)", fontWeight: "300" },
         h1: { lineHeight: "1", fontSize: "var(--step-3)", fontWeight: "800" },
         h2: { lineHeight: "1", fontSize: "var(--step-3)", fontWeight: "800" },

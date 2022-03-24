@@ -47,6 +47,14 @@ module.exports = function (eleventyConfig) {
     }
     return l;
   });
+  eleventyConfig.addNunjucksFilter("gotLinks", links => {
+    for (const key in links) {
+      if (links[key].length) {
+        return true;
+      }
+    }
+    return false;
+  });
 
   return {
     templateFormats: ["njk", "html"],

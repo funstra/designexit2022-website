@@ -77,25 +77,33 @@
           }
         </style>
         <g stroke="hsl(var(--accent))" stroke-width="4">
-          <line x1="0" x2="48" y1="1" y2="1" />
-          <line x1="0" x2="48" y1="16" y2="16" />
-          <line x1="0" x2="48" y1="31" y2="31" />
+          <line x1="0" x2="48" y1="1" y2="1"/>
+          <line x1="0" x2="48" y1="16" y2="16"/>
+          <line x1="0" x2="48" y1="31" y2="31"/>
         </g>
       </svg>
     </button>
     <ol
       w:opacity="0"
       w:bg="primary"
-      class="nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center text-xl"
+      class="nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center "
     >
-      <li class="pointer-events-auto">
-        <a href="/#start">start</a>
+      <li class="pointer-events-auto" >
+        <a w:text="xl" href="/#start">start</a>
       </li>
-      <li class="pointer-events-auto">
-        <a href="/#designexit">designexit</a>
+      <li class="pointer-events-auto" >
+        <a w:text="xl" href="/#designexit">designexit</a>
       </li>
+      <li class="pointer-events-auto" >
+        <a w:text="xl" href="/#vilka-ar-vi">vilka är vi</a>
+      </li>
+      {# TODO add state to history #}
       <li class="pointer-events-auto">
-        <a href="/#vilka-ar-vi">vilka är vi</a>
+        <ol w:flex="~ wrap" w:grid="gap-s">
+          {% for student in collections.studenterPages %}
+            <a href="{{student.url}}">{{student.data.student.fnamn}}</a>
+          {% endfor %}
+        </ol>
       </li>
     </ol>
   </nav>

@@ -8,15 +8,18 @@ import "./js/timer";
 const impMap = () => {
   if (location.hash === "#vernissage" || location.hash === "#vilka-ar-vi") {
     import("./js/map");
-    console.log("imported map");
+    // console.log("imported map");
     removeEventListener("popstate", impMap);
   }
 };
 // Hamburger
 addEventListener("popstate", impMap);
 addEventListener("popstate", e => {
+  // console.log(e.state);
+  // console.log("popin");
   console.log(e.state);
-  console.log("popin");
+  if (e.state === "alster") {
+  }
   if (e.state === "student") {
     location.reload();
   }

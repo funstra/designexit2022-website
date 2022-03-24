@@ -8,18 +8,18 @@ const init = () => {
               section.id;
             section.classList.add("intersecting");
             if (location.hash != `#${section.id}`) {
-              console.log(history.state);
+              // console.log(history.state);
               if (
                 !(history.state === "student" && section.id === "vilka-ar-vi")
               ) {
-                console.log(location.hash);
-                console.log("replace");
+                // console.log(location.hash);
+                // console.log("replace");
                 history.replaceState(null, null, `#${section.id}`);
               }
             }
             if (section.id === "vilka-ar-vi" || section.id === "vernissage") {
               import("./map");
-              console.log("imported map");
+              // console.log("imported map");
             }
           } else if (!entry.isIntersecting) {
             section.classList.remove("intersecting");

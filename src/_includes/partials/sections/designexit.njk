@@ -29,7 +29,8 @@
   {% import "macros/triangle.njk" as tri %}
   <svg
     width="100%"
-    height="30rem"
+    {# height="30rem" #}
+    w:h="10rem md:20rem"
     viewBox="0 0 100% 1024"
     preserveAspectRatio="xMidYMin"
   >
@@ -55,6 +56,7 @@
         height="16"
         viewBox="0 0 16 16"
         patternUnits="userSpaceOnUse"
+        patternTransform="translate(6 0)"
       >
         <g stroke="hsl(var(--accent))">
           <!-- <circle cx="4" cy="4" r="2"  />
@@ -73,6 +75,6 @@
         <line x1="{{l}}" x2="{{l + 5}}"/>
       {% endfor %}
     </g> #}
-    <g stroke-width="4">{{ tri.right(1, "", "hsl(var(--primary))") }}</g>
+    {# <g stroke-width="4">{{ tri.right(1, "", "hsl(var(--primary))") }}</g> #}
   </svg>
 </section>

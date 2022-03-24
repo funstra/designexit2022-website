@@ -1,15 +1,16 @@
-const { readFileSync, readdirSync } = require("fs");
+const { readdirSync } = require("fs");
 const { resolve } = require("path");
-const slug = require('slug')
+const slug = require("slug");
 const dir = resolve(__dirname, "../../", "assets", "alster");
 function alst(student) {
   const s = slug(`${student.fnamn}-${student.enamn}`);
   const files = readdirSync(resolve(dir, s));
   const alsterFiles = files
-    .filter(f => f.endsWith(".png") && f.includes("alster"))
+    .filter(f => f.includes("alster"))
     .map(f => `alster/${s}/${f}`);
   return alsterFiles;
 }
+// TODO add aria labels for alster
 module.exports = () => {
   const studenter = [
     {

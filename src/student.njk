@@ -1,5 +1,6 @@
 ---
 layout: layouts/base.njk
+tags: studenterPages
 pagination:
   data: studenter
   size: 1
@@ -48,44 +49,80 @@ alster = student.alster() %}
 
         {# beskrivning #}
         <p w:md="col-start-2 row-start-2">{{ student.beskrivning }}</p>
-
+        
+        {# TODO fix grid row height #}
         {# alster #}
-        <ul id="alster-wrapper" w:grid="gap-3xs" w:md="row-start-3 col-start-2 row-span-3" aria-label="portfolio">
+        <ul  id="alster-wrapper" w:grid="gap-3xs" w:md="row-start-3 col-start-2 row-span-3" aria-hidden="true"
+
+        {# video handler #}
+        onclick="
+        if(event.target.id === 'close'){
+            history.replaceState('student',null,'/#{{studentSlug}}')
+        }else if(event.target.tagName === 'A'){
+            history.replaceState('alster',null,location.pathname)
+        }
+        const {target:t} = event
+        if(t.tagName==='VIDEO'){
+            t.paused?t.play():t.pause()
+        }else{
+            const {nextElementSibling:n,previousElementSibling:p} = t
+            n ? (n.tagName==='VIDEO'&&(n.paused?n.play():n.pause())) : p.tagName==='VIDEO'&&(()=>{p.pause();p.currentTime=0})()
+        }
+        ">
             {% for alst in alster %}
+                {% set isVideo = '.mov' in alst or '.mp4' in alst %}
+
                 <li w:pos="relative">
-                    <a href="#alster{{loop.index}}" w:pos="absolute" w:w="full" w:h="full" ></a>
-                    <img id="alster{{loop.index}}" src="/assets/{{ alst }}" alt="Ett alster"/>
-                    <a href="#" w:pos="absolute right-s top-s" w:text="xl" w:font="leading-[0]" w:bg="ternary" w:display="hidden">&Cross;</a>
+                    <a  href="#alster{{loop.index}}" w:pos="absolute" w:w="full" w:h="full" ></a>
+                    {% if isVideo %}
+                        <!-- <svg w:pointer="none" w:pos="absolute left-[0] top-[0]" width="100%" height="100%" viewBox="0 0 32 27.712" preserveAspectRatio="xMidYMid">
+                            <g transform="scale(0.5) translate(4 0)" transform-origin="center" fill="hsl(var(--primary))">
+                                <polygon points="0,32 27.712,16 0,0"></polygon>
+                            </g>
+                        </svg> -->
+                        <video controls w:cursor="pointer" id="alster{{loop.index}}" src="/assets/{{alst}}" alt="Ett alster"></video>
+                    {% else %}
+                        <img id="alster{{loop.index}}" src="/assets/{{ alst }}" alt="Ett alster"/>
+                    {% endif %}
+                    <a id="close" href="#" w:pos="absolute right-2xs top-2xs"  style="z-index: 2000;font-size: calc(var(--step-3) * 2);" w:font="leading-[0.8ex]" w:display="hidden">&Cross;</a>
                 </li>
             {% endfor %}
         </ul>
 
-        {# socials #}
+        {# länkar #}
         {% set links = student.links %}
-        <div id="socials" w:md="col-start-1 row-start-4">
-            <h3>Se mer av {{ student.fnamn }}</h3>
-            {% for name, href in links | socials %}
-                {% if href %}
-                    <a href="{{ href }}">{{ name }}</a>
+        {% if links | gotLinks %}
+
+            <div id="socials" w:md="col-start-1 row-start-4">
+
+                {# socials #}
+                {% for name, href in links | socials %}
+                    {% if href %}
+                        <a href="{{ href }}">{{ name }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {# hemsida #}
+                {% if links.hemsida %}
+                    <br/>
+                    <span>hemsida{{smol.tri(r=180)}}
+                        <a w:text="underline-1 underline" href="{{ links.hemsida }}">{{links.hemsida}}</a>
+                    </span>
                 {% endif %}
-            {% endfor %}
-            {# hemsida #}
-            {% if links.hemsida %}
-                <br/>
-                <span>hemsida{{smol.tri(r=180)}}
-                    <a w:text="underline-1 underline" href="{{ links.hemsida }}">{{links.hemsida}}</a>
-                </span>
             {% endif %}
+
         </div>
     </div>
 
     {# nav #}
     <nav w:w="full" w:flex="~" w:justify="between">
+
         {# prev #}
         {% if pagination.href.previous %}
             <a href="{{ pagination.href.previous }}">
                 {{smol.tri()}}föregående</a>
         {% endif %}
+
         {# next #}
         {% if pagination.href.next %}
             <a href="{{ pagination.href.next }}" class={{"ml-auto" if not pagination.href.previous else ""}}
