@@ -1,6 +1,10 @@
 const Image = require("@11ty/eleventy-img");
 module.exports = function (dir, name, alt, outname) {
-  console.log(name)
+  // if (name.endsWith(".mov") || name.endsWith(".mp4")) {
+
+  //   return `<video controlls src='/assets/vid/${name}'></video>`
+  // }
+  console.log(name);
   const src = `./assets/${dir}${dir ? "/" : ""}${name}`.toLocaleLowerCase();
   const opt = {
     widths: [256, 384, 512, 768, 1024, 1536, 2048],

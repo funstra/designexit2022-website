@@ -3,11 +3,10 @@ body > header {
   &::after {
     position: absolute;
     content: attr(data-current);
-    // background-color: black;
+    text-transform: uppercase;
+    line-height: 1;
     @apply bg-accent;
-    @apply px-2;
-    @apply py-1;
-    // color: white;
+    padding: 0.5em 0.25em 0.25em 0.5em;
     @apply text-primary;
     letter-spacing: 0.5ch;
     bottom: 0;

@@ -209,7 +209,7 @@ module.exports = () => {
     },
     {
       fnamn: "Mia",
-      enamn: "Wiklundh Engqvist",
+      enamn: "Engqvist",
       beskrivning:
         "Mia Wiklundh Engqvist, 33 år, från Sundborn utanför Falun. En lugn, ansvarsfull tjej som gillar att lära sig nya saker och gärna arbetar med att text och att skapa olika typer av grafiskt material. När hon inte åker land och rike runt för att gå på olika konserter gillar hon att träna och lyssna på podcasts. Det roligaste med utbildningen enligt Mia har varit att få lära sig front-end utveckling och fotografering. Efter utbildningen vill hon gärna fortsätta att utvecklas inom front-end och grafisk design.",
       links: {

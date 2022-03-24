@@ -1,0 +1,25 @@
+#sponsorer {
+  // --width: 40rem;
+  // background-color: red;
+  // .grid-wrapper {
+  //   align-items: center;
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  //   img {
+  //     //   width: 100%;
+  //   }
+  //   [data-paket="guld"] {
+  //     // grid-row-start: 3;
+  //   }
+  // }
+  .grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    svg {
+      flex-basis: 250px;
+      &[paket="guld"] {
+        flex-basis: 200px;
+      }
+    }
+  }
+}

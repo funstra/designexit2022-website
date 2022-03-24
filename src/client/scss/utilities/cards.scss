@@ -1,9 +1,14 @@
+.card {
+  a.button {
+    display: inline-block;
+  }
+}
 // #studentGrid {
 //     > .card:nth-child(even) {
 //         @apply mt-l
 //     }
-// } 
-    
+// }
+
 // @screen sm {
 //     #studentGrid > .card:nth-child(even) {
 //         @apply mt-0

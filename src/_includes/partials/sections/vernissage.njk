@@ -1,11 +1,10 @@
-<section id="vernissage" w:flex="shrink-0" class="flex flex-col gap-s p-s justify-center">
+<section id="vernissage" w:flex="shrink-0" class="flex flex-col gap-s justify-center">
 
-    <div class="[ vernissage ][ flex flex-col gap-s md:gap-l ]">
+    <div class="[ vernissage ][ flex flex-col gap-s ]">
         <article class="[ vernissage-txt ] [ flex-grow flow ]">
             <h2>När är vernissagen?</h2>
             <p>
-                Vernissagen kommer att hålla hus på
-                Dalateatern tio14 den 1:a Juni 2022 från klockan 15:00 till 18:00.
+                Vernissagen kommer att ske vid Kulturhuset tio14 den <time datetime="2022-06-01" w:font="medium">1:a Juni 2022</time> från klockan 15:00 till 18:00.            
             </p>
             <p>Adress:
                 <a class="underline" target="_blank" href="https://www.google.com/maps/place/Stiftelsen+L%C3%A4nsteatern+i+Dalarna+(Dalateatern)/@60.6040063,15.6294313,17z/data=!3m1!4b1!4m5!3m4!1s0x46677076bca19b21:0xab32496f69b4c6cf!8m2!3d60.6040037!4d15.6316201?hl=sv">Teatergatan 5, 791 62 Falun</a>
@@ -16,15 +15,12 @@
         </div>
     </div>
 
-    <div  class="[ vernissage ][ flex flex-col gap-s md:gap-l ]">
+    <div  class="[ vernissage ][ flex flex-col gap-s ]">
         <article class="[ vernissage-txt ] [ flex-grow flow ]">
-            <h2>Kan inte komma?</h2>
-            <p>
-                Oroa dig inte, vi har skapat en digital utställning som kommer att
-                fungera när vernissagen startar och kommer att vara aktiv under en längre period!
-            </p>
+            <h2 w:text="" class="" >Kan du inte närvara?</h2>
+            <p>Oroa dig inte. Utställningen släpps även i ett digitalt format, men vi ser helst att du vill komma och besöka oss på vernissaget. Den digitala utställningen släpps i samband med att vernissagen startar.</p>
             {# <button class="[ btn-light-inactive ] [ mt-3 hidden md:block ]">till vernissagen</button> #}
-            <p class="[ btn-info ] [ mt-1 hidden md:block ]">Startar 1 Juni 2022 kl 15:00</p>
+            {# <p class="[ btn-info ] [ mt-1 hidden md:block ]">Startar 1 Juni 2022 kl 15:00</p> #}
         </article>
         <div class="[ vernissage-img ] [ h-[20rem] min-w-[50%] relative ]">
             {% if build.env == 'production' %}

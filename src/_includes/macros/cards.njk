@@ -1,21 +1,20 @@
 {% macro person(student, env) %}
-    {% set studentPath = (student.fnamn + '-' + student.enamn) | slug + '/' %}
     {% set studentSlug = (student.fnamn + '-' + student.enamn) | slug %}
-    <div id="{{studentSlug}}" class="card | shadow-xs dark:shadow-s flow p-2xs rounded-s"  w:w="max-xl">
+    <div id="{{studentSlug}}" class="card | shadow-xs dark:shadow-s flow p-2xs rounded-s">
         {% if env == "production" %}
             {% image 'alster',
-            studentPath + 'portrait.png',
+            studentSlug + '/' + 'portrait.png',
             "Porträtt av {{student.fnamn}} {{student.enamn}}",
             studentSlug %}
         {% else %}
-            <img src="/assets/alster/{{studentPath + 'portrait.png'}}" alt="">
+            <img src="/assets/alster/{{studentSlug + '/' + 'portrait.png'}}" alt="">
         {% endif %}
         <h3>
             {{student.fnamn}}
             <br>
             {{student.enamn}}
         </h3>
-        <a w:text="xs" class="button" href="/student/{{studentSlug | slug}}">
+        <a w:text="xs" w:font="medium"  class="button" href="/student/{{studentSlug | slug}}">
             Läs mer
         </a>
     </div>

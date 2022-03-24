@@ -15,67 +15,79 @@
 //     @apply bg-accent;
 //   }
 // }
+#student-grid {
+  display: grid;
+  --n: 2;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  @apply gap-s;
+  @screen sm {
+    --n: 3;
+  }
+  @screen lg {
+    --n: 4;
+  }
+}
 #vilka-ar-vi {
-  position: relative;
-  > h2 {
-    position: absolute;
-    top: 0;
-  }
+  // position: relative;
+  // > h2 {
+  //   position: absolute;
+  //   top: 0;
+  // }
 }
 
-#studentGrid {
-  .card:nth-child(odd) {
-    @apply mt-xl;
-  }
-}
+// #studentGrid {
+//   .card:nth-child(odd) {
+//     @apply mt-xl;
+//   }
+// }
 
-@screen sm {
-  #studentGrid > .card:nth-child(odd) {
-    @apply mt-0;
-  }
-}
+// @screen sm {
+//   #studentGrid > .card:nth-child(odd) {
+//     @apply mt-0;
+//   }
+// }
 
-@screen sm {
-  #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 4):nth-child(-n + 6) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 7):nth-child(-n + 9) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 10) {
-    @apply mt-xl;
-  }
-}
+// @screen sm {
+//   #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 4):nth-child(-n + 6) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 7):nth-child(-n + 9) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 10) {
+//     @apply mt-xl;
+//   }
+// }
 
-@screen md {
-  #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
-    @apply mt-0;
-  }
-  #studentGrid > .card:nth-child(2n + 4):nth-child(-n + 6) {
-    @apply mt-0;
-  }
-  #studentGrid > .card:nth-child(2n + 7):nth-child(-n + 9) {
-    @apply mt-0;
-  }
-  #studentGrid > .card:nth-child(2n + 10) {
-    @apply mt-0;
-  }
-}
+// @screen md {
+//   #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
+//     @apply mt-0;
+//   }
+//   #studentGrid > .card:nth-child(2n + 4):nth-child(-n + 6) {
+//     @apply mt-0;
+//   }
+//   #studentGrid > .card:nth-child(2n + 7):nth-child(-n + 9) {
+//     @apply mt-0;
+//   }
+//   #studentGrid > .card:nth-child(2n + 10) {
+//     @apply mt-0;
+//   }
+// }
 
-@screen md {
-  #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 5):nth-child(-n + 8) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 9):nth-child(-n + 12) {
-    @apply mt-xl;
-  }
-  #studentGrid > .card:nth-child(2n + 13):nth-child(-n + 14) {
-    @apply mt-xl;
-  }
-}
+// @screen md {
+//   #studentGrid > .card:nth-child(2n + 1):nth-child(-n + 4) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 5):nth-child(-n + 8) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 9):nth-child(-n + 12) {
+//     @apply mt-xl;
+//   }
+//   #studentGrid > .card:nth-child(2n + 13):nth-child(-n + 14) {
+//     @apply mt-xl;
+//   }
+// }

@@ -26,11 +26,11 @@ alster = student.alster() %}
         event.preventDefault()
         history.pushState('student',null,'/#{{ studentSlug }}')
         location.reload()">
-        {{smol.tri()}}tillbaka
+        {{smol.tri()}}Tillbaka
     </a>
 
     {# student #}
-    <div id="student-wrapper" w:grid="gap-2xs">
+    <div id="student-wrapper" w:flex="grow" w:grid="gap-2xs">
 
         {# namn #}
         <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
@@ -39,52 +39,80 @@ alster = student.alster() %}
         </h2>
 
         {# portrait #}
-        <img
-        style="aspect-ratio: 1/1"
-        w:w="full"
-        w:object="cover"
-        w:md="col-start-1 row-start-1 row-span-3 "
-        src="/assets/alster/{{ studentSlug }}/portrait.png"
-        alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+        {% if build.env == "production" %}
+            <div
+            style="aspect-ratio: 1/1"
+            w:w="full"
+            w:object="cover"
+            w:md="col-start-1 row-start-1 row-span-3 " 
+            >
+                {% image 'alster',
+                studentSlug + '/' + 'portrait.png',
+                "Porträtt av {{student.fnamn}} {{student.enamn}}",
+                studentSlug %}
+            </div>
+        {% else %}
+            <img  
+            style="aspect-ratio: 1/1"
+            w:w="full"
+            w:object="cover"
+            w:md="col-start-1 row-start-1 row-span-3 " 
+            src="/assets/alster/{{studentSlug}}/portrait.png" 
+            alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+        {% endif %}
 
         {# beskrivning #}
-        <p w:md="col-start-2 row-start-2">{{ student.beskrivning }}</p>
-        
+        <p w:md="col-start-2 row-start-2" w:m="b-l">{{ student.beskrivning }}</p>
+
         {# TODO fix grid row height #}
         {# alster #}
         <ul  id="alster-wrapper" w:grid="gap-3xs" w:md="row-start-3 col-start-2 row-span-3" aria-hidden="true"
 
-        {# video handler #}
+        {# nav handler #}
         onclick="
+            const vid = event.target.nextElementSibling?.querySelector('video')||event.target.previousElementSibling?.querySelector('video')
+        vid?.paused&&vid?.play()
         if(event.target.id === 'close'){
             history.replaceState('student',null,'/#{{studentSlug}}')
+            vid.currentTime = 0
+            vid.pause()
         }else if(event.target.tagName === 'A'){
-            history.replaceState('alster',null,location.pathname)
-        }
-        const {target:t} = event
-        if(t.tagName==='VIDEO'){
-            t.paused?t.play():t.pause()
-        }else{
-            const {nextElementSibling:n,previousElementSibling:p} = t
-            n ? (n.tagName==='VIDEO'&&(n.paused?n.play():n.pause())) : p.tagName==='VIDEO'&&(()=>{p.pause();p.currentTime=0})()
+            if(event.target.getAttribute('nav') == 'replace'){
+                event.preventDefault()
+                location.replace(event.target.href)
+            } else{
+                history.replaceState('alster',null,location.pathname)
+            }
         }
         ">
             {% for alst in alster %}
                 {% set isVideo = '.mov' in alst or '.mp4' in alst %}
 
-                <li w:pos="relative">
+                <li w:pos="relative" id="alster{{loop.index}}">
                     <a  href="#alster{{loop.index}}" w:pos="absolute" w:w="full" w:h="full" ></a>
-                    {% if isVideo %}
-                        <!-- <svg w:pointer="none" w:pos="absolute left-[0] top-[0]" width="100%" height="100%" viewBox="0 0 32 27.712" preserveAspectRatio="xMidYMid">
-                            <g transform="scale(0.5) translate(4 0)" transform-origin="center" fill="hsl(var(--primary))">
-                                <polygon points="0,32 27.712,16 0,0"></polygon>
-                            </g>
-                        </svg> -->
-                        <video controls w:cursor="pointer" id="alster{{loop.index}}" src="/assets/{{alst}}" alt="Ett alster"></video>
-                    {% else %}
-                        <img id="alster{{loop.index}}" src="/assets/{{ alst }}" alt="Ett alster"/>
-                    {% endif %}
+                    <div >
+                        {% if isVideo %}
+                            <video controls w:cursor="pointer" src="/assets/{{alst}}" alt="Ett alster"></video>
+                        {% else %}
+                            {% if build.env == 'production' %}
+                                {% image '',
+                                alst,
+                                "Ett alster",
+                                studentSlug %}
+                            {% else %}
+                                <img  src="/assets/{{ alst }}" alt="Ett alster"/>
+                            {% endif %}
+                        {% endif %}
+                    </div>
                     <a id="close" href="#" w:pos="absolute right-2xs top-2xs"  style="z-index: 2000;font-size: calc(var(--step-3) * 2);" w:font="leading-[0.8ex]" w:display="hidden">&Cross;</a>
+                    <nav w:p="x-3xs3xl" w:display="hidden" w:pos="absolute top-[50%] left-[0]" w:w="full" w:justify="between">
+                        {% if loop.index != 1 %}
+                            <a w:text="xl middle center" nav="replace" href="#alster{{loop.index - 1}}">{{smol.tri(m=0)}}</a>
+                        {% endif %}
+                        {% if loop.index != (alster | length) %}
+                            <a w:text="xl middle center" nav="replace" class="{{'ml-auto' if loop.index == 1 else ""}}" href="#alster{{loop.index + 1}}">{{smol.tri(r=180,m=0)}}</a>
+                        {% endif %}
+                    </nav>
                 </li>
             {% endfor %}
         </ul>
@@ -98,7 +126,7 @@ alster = student.alster() %}
                 {# socials #}
                 {% for name, href in links | socials %}
                     {% if href %}
-                        <a href="{{ href }}">{{ name }}</a>
+                        <a w:text="underline underline-1" w:m="r-xs" href="{{ href }}">{{ name }}</a>
                     {% endif %}
                 {% endfor %}
 
@@ -117,16 +145,13 @@ alster = student.alster() %}
     {# nav #}
     <nav w:w="full" w:flex="~" w:justify="between">
 
-        {# prev #}
         {% if pagination.href.previous %}
             <a href="{{ pagination.href.previous }}">
-                {{smol.tri()}}föregående</a>
+                {{smol.tri()}} Föregående</a>
         {% endif %}
 
-        {# next #}
         {% if pagination.href.next %}
-            <a href="{{ pagination.href.next }}" class={{"ml-auto" if not pagination.href.previous else ""}}
-        >nästa{{smol.tri(r=180)}}</a>
+            <a href="{{ pagination.href.next }}" class="{{'ml-auto' if not pagination.href.previous else ""}}">Nästa {{smol.tri(r=180)}}</a>
         {% endif %}
     </nav>
 </section>

@@ -2,37 +2,35 @@
   display: none;
 }
 
-@screen sm {
-  #studentGrid > * > {
-    button,
-    .button {
-      display: block;
-      width: 100%;
-      padding-top: var(--space-3xs);
-      padding-bottom: var(--space-3xs);
-    }
-  }
-}
+// @screen sm {
+//   #studentGrid > * > {
+//     button,
+//     .button {
+//       display: block;
+//       width: 100%;
+//       padding-top: var(--space-3xs);
+//       padding-bottom: var(--space-3xs);
+//     }
+//   }
+// }
 
 button,
 .button {
-  &:not(.hamburger,#theme-toggle) {
-    border-radius: 3px;
+  &:not(.hamburger, #theme-toggle) {
+    width: 100%;
+    border-radius: 1px;
     @apply border-accent;
     border-width: 2px;
     border-style: solid;
     text-align: center;
     @apply px-s;
-  }
-}
-button,
-.button {
-  &:not(.hamburger,#theme-toggle) {
+    @apply py-3xs;
     &:hover {
       @apply bg-accent text-primary shadow-s;
     }
   }
 }
+
 
 .btn-light-inactive {
   padding: 0.5rem 1rem;

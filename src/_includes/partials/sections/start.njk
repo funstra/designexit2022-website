@@ -1,11 +1,11 @@
 {% import 'macros/triangle.njk' as tri %}
-<section id="start" w:grid="gap-s md:gap-[0]" w:flex="shrink-0" w:h="full" class="justify-items-center" w:bg="">
-    <header class="row-start-2 md:row-start-1 h-max text-left">
+<section id="start" w:grid="gap-l" w:flex="shrink-0" w:h="full" w:p="y-xl" class="justify-items-center" w:bg="">
+    <header class="row-start-2 h-max text-left">
         <h1 class="text-center uppercase w-max leading-[0.66]" w:m="b-2xs">
       designexit <br/>
             <span class="text-[2.5em]">2022</span>
         </h1>
-        <p class="text-center md:text-left">Vernisage <time datetime="2022-06-01">1 Juni 2022</time>
+        <p class="text-center">Vernissage <time datetime="2022-06-01">1 Juni 2022</time>
         </p>
     </header>
     <svg 
@@ -14,7 +14,9 @@
     viewBox="0 0 3400 3103"
     w:h="full"
     w:w="full"
-    w:grid="row-start-1 md:row-span-2 md:col-start-2">
+    w:grid="row-start-1"
+    preserveAspectRatio="xMidYMax"
+    >
         <path d="M3396.2,3105.2H0L1698.1,164L3396.2,3105.2z M11.3,3098.7h3373.5L1698.1,177L11.3,3098.7z"/>
         <path d="M3265.4,3030.3H130.8L1698.1,324.1L3265.4,3030.3z M150.9,3018.6h3094.4L1698.1,347.3L150.9,3018.6z"/>
         <path d="M3134.6,2955.3h-2873L1698.1,484.2L3134.6,2955.3z M290.6,2938.6h2815L1698.1,517.4L290.6,2938.6z"/>

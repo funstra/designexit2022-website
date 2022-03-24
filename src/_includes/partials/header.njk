@@ -1,6 +1,6 @@
 <header
   data-current="{{'student' if '/student/' in page.url else ''}}"
-  class="flex justify-between py-2 border-b-2 border-black"
+  class="flex justify-between items-center pt-xs pb-3xs border-b-2 border-black"
 >
   <button
     w:m="r-xs"
@@ -16,8 +16,6 @@
     <svg
       aria-hidden="true"
       class="icon-toggle"
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
     >
       <mask class="moon" id="moon-mask">
@@ -53,7 +51,7 @@
       <svg
         aria-hidden="true"
         class=""
-        width="2.5rem"
+        width="2rem"
         height="2rem"
         viewBox="0 0 48 32"
         preservAspectRatio="xMidYMid"
@@ -86,24 +84,31 @@
     <ol
       w:opacity="0"
       w:bg="primary"
+      w:grid="gap-s"
       class="nav | fixed z-20 left-0 top-[-100%] w-full h-full flex flex-col items-center justify-center "
     >
       <li class="pointer-events-auto" >
-        <a w:text="xl" href="/#start">start</a>
+        <a  w:text="xl uppercase" href="/#start">start</a>
       </li>
       <li class="pointer-events-auto" >
-        <a w:text="xl" href="/#designexit">designexit</a>
+        <a  w:text="xl uppercase" href="/#designexit">designexit</a>
       </li>
       <li class="pointer-events-auto" >
-        <a w:text="xl" href="/#vilka-ar-vi">vilka är vi</a>
+        <a  w:text="xl uppercase" href="/#vilka-ar-vi">vilka är vi</a>
       </li>
       {# TODO add state to history #}
       <li class="pointer-events-auto">
-        <ol w:flex="~ wrap" w:grid="gap-s">
+        <ol w:flex="~ wrap" w:grid="gap-s" w:justify="center" w:p="x-l">
           {% for student in collections.studenterPages %}
-            <a href="{{student.url}}">{{student.data.student.fnamn}}</a>
+            <li  w:text="center">
+              <a   href="{{student.url }}">{{student.data.student.fnamn}}
+                {{student.data.student.enamn.slice(0,1) | upper }}</a>
+            </li>
           {% endfor %}
         </ol>
+      </li>
+      <li class="pointer-events-auto">
+        <a  w:text="xl uppercase" href="/#vernissage">vernissage</a>
       </li>
     </ol>
   </nav>

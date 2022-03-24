@@ -10,7 +10,8 @@
     }
   }
   > * {
-    width: var(--width, 70rem);
+    --width: 75rem;
+    width: var(--width, 65rem);
     max-width: 100%;
   }
 }

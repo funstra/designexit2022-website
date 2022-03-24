@@ -1,9 +1,9 @@
 #start {
   display: grid;
-  @media screen and (min-width: 960px) {
-    grid-template-columns: max-content 1fr;
-    grid-template-rows: min-content 1fr;
-  }
+  // @media screen and (min-width: 960px) {
+  //   grid-template-columns: max-content 1fr;
+  //   grid-template-rows: min-content 1fr;
+  // }
   grid-template-columns: 1fr;
 }
 

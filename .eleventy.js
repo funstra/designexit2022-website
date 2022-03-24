@@ -17,9 +17,15 @@ module.exports = function (eleventyConfig) {
   // passthrough - -
   eleventyConfig.addPassthroughCopy("./assets/fonts");
   eleventyConfig.addPassthroughCopy("./assets/svg/map-marker.svg");
+  eleventyConfig.addPassthroughCopy("./assets/svg/sponsor-loggor");
   eleventyConfig.addPassthroughCopy("./assets/img");
   if (process.env.NODE_ENV !== "production") {
     eleventyConfig.addPassthroughCopy("./assets/alster");
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.addPassthroughCopy("./assets/alster/**/*.mov");
+    eleventyConfig.addPassthroughCopy("./assets/alster/**/*.mp4");
   }
 
   // v11te - - -
