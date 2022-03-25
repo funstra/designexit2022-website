@@ -5,11 +5,20 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
+    --b: 350px;
+    --mult: 1;
+    --correct: 1;
     > * {
-      flex-basis: 225px;
-
+      // flex-grow: 1;
+      flex-basis: calc(
+        min(max(20vw, 200px), var(--b)) * var(--mult) * var(--correct)
+      );
+      // max-width: calc(
+      //   min(max(20vw, 200px), var(--b)) * var(--mult) * var(--correct)
+      // );
       &[paket="guld"] {
-        flex-basis: 120px;
+        // flex-basis: 120px;
+        --mult: 0.5;
       }
     }
   }
