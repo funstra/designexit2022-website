@@ -50,8 +50,8 @@ export default {
       m2xl: "var(--space-m-2xl)",
     },
     boxShadow: {
-      xs: "0 0 0.5rem 0.25rem hsl(var(--accent) / 0.02)",
-      s: "0 0 0.65rem 0.3rem hsl(var(--accent) / 0.1)",
+      xs: "0 0 0.5rem 0.25rem hsl(var(--accent) / 0.04)",
+      s: "0 0 0.65rem 0.3rem hsl(var(--accent) / 0.16)",
     },
   },
   plugins: [

@@ -16,7 +16,7 @@ alster = student.alster() %}
 {# small font triangle #}
 {% import "macros/smol-tri.njk" as smol %}
 
-<section id="personligsida" w:flex="~ col" w:grid="gap-s" w:p="y-xl" class="">
+<section id="personligsida" w:flex="~ col" w:grid="gap-s" w:p="y-xl" style="--width: 85rem">
 
     {# tillbaka #}
     <a
@@ -34,14 +34,15 @@ alster = student.alster() %}
 
         {# namn #}
         <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
-            {{ student.fnamn }} <br>
+            {{ student.fnamn }}
+            <br>
             {{ student.enamn }}
         </h2>
 
         {# portrait #}
         <div 
         w:md="col-start-1 row-start-1 row-span-3"
-        w:m="md:r-l"
+        w:m="md:r-l b-s md:b-[0]"
         >
 
             {% if build.env == "production" %}
@@ -64,11 +65,13 @@ alster = student.alster() %}
 
         {# TODO fix grid row height #}
         {# alster #}
-        <ul  id="alster-wrapper" w:grid="gap-3xs" w:md="row-start-3 col-start-2 row-span-3" aria-hidden="true"
+        <ul  id="alster-wrapper" w:grid="gap-xs" w:md="row-start-3 col-start-2 row-span-3" aria-hidden="true"
 
         {# nav handler #}
         onclick="
-            const vid = event.target.nextElementSibling?.querySelector('video')||event.target.previousElementSibling?.querySelector('video')
+            // const vid = event.target.nextElementSibling?.querySelector('video')||event.target.previousElementSibling?.querySelector('video')
+            console.log(event.target.closest('li').querySelector('video'))
+            const vid = event.target.closest('li').querySelector('video')
         vid?.paused&&vid?.play()
         if(event.target.id === 'close'){
             event.preventDefault()
@@ -76,6 +79,7 @@ alster = student.alster() %}
             if(vid){vid.currentTime = 0;vid.pause()}
         }else if(event.target.tagName === 'A'){
             if(event.target.getAttribute('nav') == 'replace'){
+            if(vid){vid.currentTime = 0;vid.pause()}
                 event.preventDefault()
                 location.replace(event.target.href)
             }
@@ -101,7 +105,7 @@ alster = student.alster() %}
                         {% endif %}
                     </div>
                     <a id="close" href="#" w:pos="absolute right-2xs top-2xs"  style="z-index: 2000;font-size: calc(var(--step-3) * 2);" w:font="leading-[0.8ex]" w:display="hidden">&Cross;</a>
-                    <nav w:display="hidden" w:pos="absolute top-[50%] left-[50%]" w:transform="~ translate-x-[-50%]" w:p="x-2xs" w:w="full" class="max-w-[75rem]" w:justify="between">
+                    <nav  w:display="hidden" w:pos="absolute top-[50%] left-[50%]" w:transform="~ translate-x-[-50%]" w:p="x-2xs" w:w="full" class="max-w-[75rem]" w:justify="between">
                         {% if loop.index != 1 %}
                             <a w:text="xl middle center" nav="replace" href="#alster{{loop.index - 1}}">{{smol.tri(m=0)}}</a>
                         {% endif %}
