@@ -34,34 +34,33 @@ alster = student.alster() %}
 
         {# namn #}
         <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
-            {{ student.fnamn }}
+            {{ student.fnamn }} <br>
             {{ student.enamn }}
         </h2>
 
         {# portrait #}
-        {% if build.env == "production" %}
-            <div
-            w:w="full"
-            w:object="cover"
-            w:md="col-start-1 row-start-1 row-span-3 " 
-            >
+        <div 
+        w:md="col-start-1 row-start-1 row-span-3"
+        w:m="md:r-l"
+        >
+
+            {% if build.env == "production" %}
                 {% image 'alster',
                 studentSlug + '/' + 'portrait.png',
                 "Porträtt av {{student.fnamn}} {{student.enamn}}",
                 studentSlug %}
-            </div>
-        {% else %}
-            <img  
-            style="aspect-ratio: 1/1"
-            w:w="full"
-            w:object="cover"
-            w:md="col-start-1 row-start-1 row-span-3 " 
-            src="/assets/alster/{{studentSlug}}/portrait.png" 
-            alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
-        {% endif %}
+            {% else %}
+                <img
+                w:w="full"
+                w:object="cover"
+                w:md="col-start-1 row-start-1 row-span-3 "
+                src="/assets/alster/{{studentSlug}}/portrait.png"
+                alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+            {% endif %}
+        </div>
 
         {# beskrivning #}
-        <p w:md="col-start-2 row-start-2" w:m="b-l">{{ student.beskrivning }}</p>
+        <p w:md="col-start-2 row-start-2" w:m="b-s" >{{ student.beskrivning }}</p>
 
         {# TODO fix grid row height #}
         {# alster #}
@@ -102,7 +101,7 @@ alster = student.alster() %}
                         {% endif %}
                     </div>
                     <a id="close" href="#" w:pos="absolute right-2xs top-2xs"  style="z-index: 2000;font-size: calc(var(--step-3) * 2);" w:font="leading-[0.8ex]" w:display="hidden">&Cross;</a>
-                    <nav w:p="x-3xs3xl" w:display="hidden" w:pos="absolute top-[50%] left-[0]" w:w="full" w:justify="between">
+                    <nav w:display="hidden" w:pos="absolute top-[50%] left-[50%]" w:transform="~ translate-x-[-50%]" w:p="x-2xs" w:w="full" class="max-w-[75rem]" w:justify="between">
                         {% if loop.index != 1 %}
                             <a w:text="xl middle center" nav="replace" href="#alster{{loop.index - 1}}">{{smol.tri(m=0)}}</a>
                         {% endif %}
@@ -123,14 +122,14 @@ alster = student.alster() %}
                 {# socials #}
                 {% for name, href in links | socials %}
                     {% if href %}
-                        <a w:text="underline underline-1" w:m="r-xs" href="{{ href }}">{{ name }}</a>
+                        <a w:text="underline underline-1" w:m="r-xs" href="{{ href }}">{{ name | capitalize }}</a>
                     {% endif %}
                 {% endfor %}
 
                 {# hemsida #}
                 {% if links.hemsida %}
                     <br/>
-                    <span>hemsida {{smol.tri(r=180)}}
+                    <span>Hemsida {{smol.tri(r=180)}}
                         <a w:text="underline-1 underline" href="{{ links.hemsida }}">{{links.hemsida}}</a>
                     </span>
                 {% endif %}

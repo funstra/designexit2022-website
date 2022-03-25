@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" router:route={{page.url}}>
+<html lang="en" w:h="full" router:route={{page.url}}>
     <head>
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -23,7 +23,7 @@
             }
         </script>
     </head>
-    <body w:h="screen" w:flex="~ col" w:overflow="hidden" w:p="x-xs b-xs">
+    <body w:h="full" w:flex="~ col" w:overflow="hidden" w:p="x-xs b-xs">
         {% include "partials/header.njk" %}
         {% include "partials/main.njk" %}
         {% if build.env == "production" %}

@@ -5,7 +5,7 @@ const init = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             document.querySelector("body > header").dataset.current =
-              section.id;
+              section.id == "vilka-ar-vi" ? "vilka är vi" : section.id;
             section.classList.add("intersecting");
             if (location.hash != `#${section.id}`) {
               if (

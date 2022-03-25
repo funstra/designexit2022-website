@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   @screen md {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content min-content;
+    grid-template-rows: min-content min-content auto min-content 1fr;
   }
 }
 
@@ -43,6 +43,13 @@
     > nav {
       display: flex;
     }
+    > div{
+
+      // @apply py-l
+      max-width: 60rem;
+      width: 85%;
+      margin: 0 auto;
+    }
     object-fit: contain;
     position: fixed;
     left: 0;
@@ -54,6 +61,6 @@
     video {
       object-fit: contain;
     }
-    @apply p-m2xl;
+    // @apply p-m2xl;
   }
 }

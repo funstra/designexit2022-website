@@ -2,10 +2,14 @@
   .grid-wrapper {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
     > * {
-      flex-basis: 200px;
+      flex-basis: 225px;
+
       &[paket="guld"] {
-        flex-basis: 175px;
+        flex-basis: 120px;
       }
     }
   }
