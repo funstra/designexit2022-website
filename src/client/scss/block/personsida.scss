@@ -10,9 +10,14 @@
 #alster-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: min-content;
   > li {
     width: 100%;
     height: 100%;
+    @supports (aspect-ratio: 1/1){
+      aspect-ratio: 1/1;
+      height: auto;
+    }
     div {
       width: 100%;
       height: 100%;
