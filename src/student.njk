@@ -73,15 +73,13 @@ alster = student.alster() %}
             const vid = event.target.nextElementSibling?.querySelector('video')||event.target.previousElementSibling?.querySelector('video')
         vid?.paused&&vid?.play()
         if(event.target.id === 'close'){
-            history.replaceState('student',null,'/#{{studentSlug}}')
-            vid.currentTime = 0
-            vid.pause()
+            event.preventDefault()
+            history.back()
+            if(vid){vid.currentTime = 0;vid.pause()}
         }else if(event.target.tagName === 'A'){
             if(event.target.getAttribute('nav') == 'replace'){
                 event.preventDefault()
                 location.replace(event.target.href)
-            } else{
-                history.replaceState('alster',null,location.pathname)
             }
         }
         ">

@@ -1,34 +1,3 @@
-#start {
-  display: grid;
-  // @media screen and (min-width: 960px) {
-  //   grid-template-columns: max-content 1fr;
-  //   grid-template-rows: min-content 1fr;
-  // }
-  grid-template-columns: 1fr;
-}
 
-#start {
-  header {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    @media screen and (max-width: 512px) {
-      // align-items: flex-start;
-      h1 {
-        // order: 1;
-      }
-      p {
-        // display: none;
-      }
-    }
-  }
-}
 
-.logo {
-  line-height: 0.75;
-  text-transform: uppercase;
-  text-align: center;
-  span {
-    font-size: 2.6em;
-  }
-}
+

@@ -1,8 +1,9 @@
-{% macro tri(r, m = 0) -%} {% set rot = 'transform: rotate(' + r + 'deg)'
-if r else '' -%}
-<span
+{% macro tri(r, m = 0) -%}
+  {% set rot = 'rotate(' + r + 'deg)' if r else '' -%}
+  {% set transform = 'transform: ' + rot + 'translateY(-0.1ex);' -%}
+  <span
   style="pointer-events: none;margin-inline-start: {{ m }}em; {{
-    rot
-  }} translateY(-1px);display: inline-block;"
+    transform
+  }} display: inline-block;"
 >&blacktriangleleft;</span>
 {%- endmacro %}
