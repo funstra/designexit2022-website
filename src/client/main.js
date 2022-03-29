@@ -21,3 +21,12 @@ document.querySelector("body > header > nav").addEventListener("click", e => {
   const state = docElement.dataset.menuState;
   docElement.dataset.menuState = state ? "" : "open";
 });
+
+// const darkObserver = new MutationObserver(event => {
+//   const sponsorer = document.getElementById('sponsorer')
+//   sponsorer.querySelectorAll('img')
+// });
+// darkObserver.observe(document.documentElement, {
+//   childList: false,
+//   attributeFilter: ["class"],
+// });
