@@ -24,7 +24,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -42,7 +42,7 @@ module.exports = () => {
         instagram: "https://www.instagram.com/emmaskreativakaos/",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -60,7 +60,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -94,7 +94,7 @@ module.exports = () => {
         instagram: "https://www.instagram.com/gccostello/",
         dribbble: "",
         behance: "",
-        flicker: "https://www.flickr.com/photos/gccostello/albums",
+        flickr: "https://www.flickr.com/photos/gccostello/albums",
         hemsida: "",
       },
       alster: function () {
@@ -112,7 +112,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -130,7 +130,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -148,7 +148,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "https://www.behance.net/fredrikjohanss11",
-        flicker: "",
+        flickr: "",
         hemsida: "https://www.johanssonfredrik.com",
       },
       alster: function () {
@@ -166,7 +166,7 @@ module.exports = () => {
         instagram: "",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -184,7 +184,7 @@ module.exports = () => {
         instagram: "https://www.instagram.com/mialivdesign/",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {
@@ -218,7 +218,7 @@ module.exports = () => {
         instagram: "https://www.instagram.com/miaengqvistdesign/",
         dribbble: "",
         behance: "",
-        flicker: "",
+        flickr: "",
         hemsida: "",
       },
       alster: function () {

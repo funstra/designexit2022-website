@@ -30,7 +30,7 @@ alster = student.alster() %}
     </a>
 
     {# student #}
-    <div id="student-wrapper" w:flex="grow" w:grid="gap-2xs">
+    <div id="student-wrapper" w:flex="grow" w:grid="gap-2xs gap-x-l">
 
         {# namn #}
         <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
@@ -42,21 +42,20 @@ alster = student.alster() %}
         {# portrait #}
         <div 
         w:md="col-start-1 row-start-1 row-span-3"
-        w:m="md:r-l b-s md:b-[0]"
-        >
 
+        >
             {% if build.env == "production" %}
                 {% image 'alster',
                 studentSlug + '/' + 'portrait.png',
                 "Porträtt av {{student.fnamn}} {{student.enamn}}",
                 studentSlug %}
             {% else %}
-                <img
-                w:w="full"
-                w:object="cover"
-                w:md="col-start-1 row-start-1 row-span-3 "
-                src="/assets/alster/{{studentSlug}}/portrait.png"
-                alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+            <img
+            w:w="full"
+            w:object="cover"
+
+            src="/assets/alster/{{studentSlug}}/portrait.png"
+            alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
             {% endif %}
         </div>
 
@@ -65,11 +64,10 @@ alster = student.alster() %}
 
         {# TODO fix grid row height #}
         {# alster #}
-        <ul  id="alster-wrapper" w:grid="gap-xs" w:md="row-start-3 col-start-2 row-span-3" aria-hidden="true"
+        <ul id="alster-wrapper" w:grid="gap-xs" w:md="row-start-4 col-start-2 row-span-4" aria-hidden="true"
 
         {# nav handler #}
         onclick="
-            // const vid = event.target.nextElementSibling?.querySelector('video')||event.target.previousElementSibling?.querySelector('video')
             console.log(event.target.closest('li').querySelector('video'))
             const vid = event.target.closest('li').querySelector('video')
         vid?.paused&&vid?.play()
@@ -118,25 +116,16 @@ alster = student.alster() %}
         </ul>
 
         {# länkar #}
+        {% import "macros/icon.njk" as icon %}
         {% set links = student.links %}
         {% if links | gotLinks %}
-
-            <div id="socials" w:md="col-start-1 row-start-4">
-
+            <div id="socials" w:md="col-start-1 row-start-4" w:flex="~" w:grid="gap-2xs">
                 {# socials #}
-                {% for name, href in links | socials %}
+                {% for name, href in links %}
                     {% if href %}
-                        <a w:text="underline underline-1" w:m="r-xs" href="{{ href }}">{{ name | capitalize }}</a>
+                        <a w:text="underline underline-1"  w:w="3ch" w:display="block" title="{{name}}"  href="{{ href }}">{{ icon.social(name) }}</a>
                     {% endif %}
                 {% endfor %}
-
-                {# hemsida #}
-                {% if links.hemsida %}
-                    <br/>
-                    <span>Hemsida {{smol.tri(r=180)}}
-                        <a w:text="underline-1 underline" href="{{ links.hemsida }}">{{links.hemsida}}</a>
-                    </span>
-                {% endif %}
             {% endif %}
 
         </div>
