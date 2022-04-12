@@ -40,30 +40,25 @@ alster = student.alster() %}
         </h2>
 
         {# portrait #}
-        <div 
-        w:md="col-start-1 row-start-1 row-span-3"
-
-        >
-            {% if build.env == "production" %}
-                {% image 'alster',
-                studentSlug + '/' + 'portrait.png',
-                "Porträtt av {{student.fnamn}} {{student.enamn}}",
-                studentSlug %}
-            {% else %}
+        {% if build.env == "production" %}
+            {% image 'alster',
+            studentSlug + '/' + 'portrait.png',
+            "Porträtt av" + student.fnamn + " " + student.enamn + " med en triangel som bakgrund",
+            studentSlug %}
+        {% else %}
             <img
-            w:w="full"
-            w:object="cover"
 
+            w:object="cover"
             src="/assets/alster/{{studentSlug}}/portrait.png"
             alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
-            {% endif %}
-        </div>
+        {% endif %}
 
         {# beskrivning #}
         <p w:md="col-start-2 row-start-2" w:m="b-s" >{{ student.beskrivning }}</p>
 
         {# TODO fix grid row height #}
         {# alster #}
+        <h2 w:md="col-start-2 row-start-3">Portfolio</h2>
         <ul id="alster-wrapper" w:grid="gap-xs" w:md="row-start-4 col-start-2 row-span-4" aria-hidden="true"
 
         {# nav handler #}
@@ -119,7 +114,7 @@ alster = student.alster() %}
         {% import "macros/icon.njk" as icon %}
         {% set links = student.links %}
         {% if links | gotLinks %}
-            <div id="socials" w:md="col-start-1 row-start-4" w:flex="~" w:grid="gap-2xs">
+            <div id="socials" w:md="col-start-1 row-start-3" w:flex="~" w:grid="gap-2xs">
                 {# socials #}
                 {% for name, href in links %}
                     {% if href %}

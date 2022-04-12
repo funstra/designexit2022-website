@@ -1,10 +1,5 @@
 const Image = require("@11ty/eleventy-img");
-module.exports = function (dir, name, alt, outname) {
-  // if (name.endsWith(".mov") || name.endsWith(".mp4")) {
-
-  //   return `<video controlls src='/assets/vid/${name}'></video>`
-  // }
-  console.log(name);
+module.exports = function (dir, name, alt, outname, attrs) {
   const src = `./assets/${dir}${dir ? "/" : ""}${name}`.toLocaleLowerCase();
   const opt = {
     widths: [256, 384, 512, 768, 1024, 1536, 2048],
@@ -16,16 +11,24 @@ module.exports = function (dir, name, alt, outname) {
     },
     urlPath: "/assets/img/" + dir,
     outputDir: "./_site/assets/img/" + dir,
+    formats: ["jpeg"],
   };
 
   Image(src, opt);
-
-  let imageAttributes = {
-    alt,
-    sizes: "100vw",
-    loading: "lazy",
-    decoding: "async",
-  };
   let metadata = Image.statsSync(src, opt);
-  return Image.generateHTML(metadata, imageAttributes);
+
+  let lowsrc = metadata.jpeg[0];
+  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+
+  return `
+      <img
+        src="${lowsrc.url}"
+        srcset="${metadata.jpeg
+          .map(entry => entry.srcset)
+          .join(", ")}" sizes="100vw"
+        width="${highsrc.width}"
+        height="${highsrc.height}"
+        alt="${alt}"
+        loading="lazy"
+        decoding="async">`;
 };
