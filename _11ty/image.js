@@ -2,7 +2,7 @@ const Image = require("@11ty/eleventy-img");
 module.exports = function (dir, name, alt, outname, attrs) {
   const src = `./assets/${dir}${dir ? "/" : ""}${name}`.toLocaleLowerCase();
   const opt = {
-    widths: [256, 384, 512, 768, 1024, 1536, 2048],
+    widths: [512, 1024, 2048, null],
     filenameFormat: function (id, src, width, format, options) {
       return `${src.slice(
         src.lastIndexOf("/") + 1,

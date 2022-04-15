@@ -26,6 +26,9 @@ export default {
     screens: {
       sm: "640px",
       "max-sm": { max: "640px" },
+      "max-md-landscape": {
+        raw: "(orientation: landscape) and (max-width: 960px)",
+      },
       md: "960px",
       lg: "1200px",
       xl: "1500px",

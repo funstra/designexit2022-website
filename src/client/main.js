@@ -22,6 +22,10 @@ document.querySelector("body > header > nav").addEventListener("click", e => {
   docElement.dataset.menuState = state ? "" : "open";
 });
 
+if (location.pathname.startsWith("/student/")) {
+  import("./js/gallery");
+}
+
 // const darkObserver = new MutationObserver(event => {
 //   const sponsorer = document.getElementById('sponsorer')
 //   sponsorer.querySelectorAll('img')

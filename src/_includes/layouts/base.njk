@@ -24,6 +24,10 @@
         </script>
     </head>
     <body w:h="full" w:flex="~ col" w:overflow="hidden" w:p="x-xs b-xs">
+        {{page.filePathStem | log}}
+        {% if page.filePathStem == '/student' %}
+            <div id="light"></div>
+        {% endif %}
         {% include "partials/header.njk" %}
         {% include "partials/main.njk" %}
         {% if build.env == "production" %}

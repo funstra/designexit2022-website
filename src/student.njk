@@ -30,100 +30,98 @@ alster = student.alster() %}
     </a>
 
     {# student #}
-    <div id="student-wrapper" w:flex="grow" w:grid="gap-2xs gap-x-l">
+    <div class="student">
+        {# portrait #}
+        <div class="portrait">
+            {% if build.env == "production" %}
+                {% image 'alster',
+                studentSlug + '/' + 'portrait.png',
+                "Porträtt av" + student.fnamn + " " + student.enamn + " med en triangel som bakgrund",
+                studentSlug %}
+            {% else %}
+                <img
+                src="/assets/alster/{{studentSlug}}/portrait.png"
+                alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
+            {% endif %}
+
+        </div>
+        {# länkar #}
+        {% import "macros/icon.njk" as icon %}
+        {% set links = student.links %}
+        {# {% if links | gotLinks %} #}
+        <ul class="socials | py-3xs min-h-[3.43ch] flex gap-2xs" >
+            {# socials #}
+            {% for name, href in links %}
+                {% if href %}
+                    <a w:text="underline underline-1"  w:w="3ch" w:display="block" title="{{name}}"  href="{{ href }}">{{ icon.social(name) }}</a>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {# {% endif %} #}
 
         {# namn #}
-        <h2 w:md="col-start-2 row-start-1" w:grid="col-start-1">
+        <h2 >
             {{ student.fnamn }}
             <br>
             {{ student.enamn }}
         </h2>
 
-        {# portrait #}
-        {% if build.env == "production" %}
-            {% image 'alster',
-            studentSlug + '/' + 'portrait.png',
-            "Porträtt av" + student.fnamn + " " + student.enamn + " med en triangel som bakgrund",
-            studentSlug %}
-        {% else %}
-            <img
-
-            w:object="cover"
-            src="/assets/alster/{{studentSlug}}/portrait.png"
-            alt="Porträtt av {{student.fnamn}} {{student.enamn}} med en triangel som bakgrund"/>
-        {% endif %}
-
         {# beskrivning #}
-        <p w:md="col-start-2 row-start-2" w:m="b-s" >{{ student.beskrivning }}</p>
+        <p  >{{ student.beskrivning }}</p>
 
-        {# TODO fix grid row height #}
         {# alster #}
-        <h2 w:md="col-start-2 row-start-3">Portfolio</h2>
-        <ul id="alster-wrapper" w:grid="gap-xs" w:md="row-start-4 col-start-2 row-span-4" aria-hidden="true"
-
-        {# nav handler #}
-        onclick="
-            console.log(event.target.closest('li').querySelector('video'))
-            const vid = event.target.closest('li').querySelector('video')
-        vid?.paused&&vid?.play()
-        if(event.target.id === 'close'){
-            event.preventDefault()
-            history.back()
-            if(vid){vid.currentTime = 0;vid.pause()}
-        }else if(event.target.tagName === 'A'){
-            if(event.target.getAttribute('nav') == 'replace'){
-            if(vid){vid.currentTime = 0;vid.pause()}
-                event.preventDefault()
-                location.replace(event.target.href)
-            }
-        }
-        ">
-            {% for alst in alster %}
-                {% set isVideo = '.mov' in alst or '.mp4' in alst %}
-
-                <li w:pos="relative" id="alster{{loop.index}}">
-                    <a  href="#alster{{loop.index}}" w:pos="absolute" w:w="full" w:h="full" ></a>
-                    <div >
-                        {% if isVideo %}
-                            <video controls w:cursor="pointer" src="/assets/{{alst}}" alt="Ett alster"></video>
-                        {% else %}
-                            {% if build.env == 'production' %}
-                                {% image '',
-                                alst,
-                                "Ett alster",
-                                studentSlug %}
+        <div class="alster">
+            <h2>Portfolio</h2>
+            <ul aria-hidden="true">
+                {% for alst in alster %}
+                    {% set isVideo = '.mov' in alst or '.mp4' in alst %}
+                    <li  id="alster{{loop.index}}">
+                        <div>
+                            {% if isVideo %}
+                                <video controls w:cursor="pointer" src="/assets/{{alst}}" alt="Ett alster"></video>
                             {% else %}
-                                <img  src="/assets/{{ alst }}" alt="Ett alster"/>
+                                {% if build.env == 'production' %}
+                                    {% image '',
+                                    alst,
+                                    "Ett alster",
+                                    studentSlug %}
+                                {% else %}
+                                    <img  src="/assets/{{ alst }}" alt="Ett alster"/>
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
-                    </div>
-                    <a id="close" href="#" w:pos="absolute right-2xs top-2xs"  style="z-index: 2000;font-size: calc(var(--step-3) * 2);" w:font="leading-[0.8ex]" w:display="hidden">&Cross;</a>
-                    <nav  w:display="hidden" w:pos="absolute top-[50%] left-[50%]" w:transform="~ translate-x-[-50%]" w:p="x-2xs" w:w="full" class="max-w-[75rem]" w:justify="between">
-                        {% if loop.index != 1 %}
-                            <a w:text="xl middle center" nav="replace" href="#alster{{loop.index - 1}}">{{smol.tri(m=0)}}</a>
-                        {% endif %}
-                        {% if loop.index != (alster | length) %}
-                            <a w:text="xl middle center" nav="replace" class="{{'ml-auto' if loop.index == 1 else ""}}" href="#alster{{loop.index + 1}}">{{smol.tri(r=180,m=0)}}</a>
-                        {% endif %}
-                    </nav>
-                </li>
-            {% endfor %}
-        </ul>
-
-        {# länkar #}
-        {% import "macros/icon.njk" as icon %}
-        {% set links = student.links %}
-        {% if links | gotLinks %}
-            <div id="socials" w:md="col-start-1 row-start-3" w:flex="~" w:grid="gap-2xs">
-                {# socials #}
-                {% for name, href in links %}
-                    {% if href %}
-                        <a w:text="underline underline-1"  w:w="3ch" w:display="block" title="{{name}}"  href="{{ href }}">{{ icon.social(name) }}</a>
-                    {% endif %}
+                        </div>
+                    </li>
                 {% endfor %}
-            {% endif %}
-
+            </ul>
         </div>
+
+    </div>
+
+    {# gallery #}
+    <div class="gallery">
+        <div class="content">
+            <div data-target="prev">
+                <svg width="32" height="32" fill="currentColor">
+                    <g>
+                        <polygon points="0,16 32,32 32,0"/>
+                    </g>
+                </svg>
+            </div>
+            <div><img src="" alt=""/></div>
+            <div data-target="next">
+                <svg width="32" height="32" fill="currentColor">
+                    <g transform="rotate(180)" transform-origin="center">
+                        <polygon points="0,16 32,32 32,0"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <svg width="32" height="32" >
+            <g stroke="currentColor" stroke-width="4">
+                <line x1="2" y1="2" x2="30" y2="30"/>
+                <line x1="30" y1="2" x2="2" y2="30"/>
+            </g>
+        </svg>
     </div>
 
     {# nav #}
