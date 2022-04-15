@@ -25,6 +25,7 @@ export default {
     },
     screens: {
       sm: "640px",
+      "max-sm": { max: "640px" },
       md: "960px",
       lg: "1200px",
       xl: "1500px",
