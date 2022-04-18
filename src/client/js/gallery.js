@@ -1,43 +1,48 @@
 const gallery = document.querySelector(".gallery");
+const frame = gallery.querySelector(".frame");
+const updateFrame = el => {
+  frame.innerHTML = "";
+  frame.appendChild(el);
+};
 const alster = document.querySelector(".student > .alster ul");
 
 let currentIndex;
-let alsters = [...document.querySelectorAll(".student > .alster img")];
+let alsters = [
+  ...document.querySelectorAll(".student > .alster :is(img,video)"),
+];
 
 alster.addEventListener("click", e => {
-  const { target } = e;
-  gallery.querySelector("div:nth-child(2) img").src = target.src;
-  gallery.querySelector("div:nth-child(2) img").srcset = target.srcset;
+  const target = e.target.firstElementChild;
+
+  const clone = target.cloneNode();
+  updateFrame(clone);
+
   currentIndex = alsters.findIndex(alster => alster.src == target.src);
   gallery.dataset.index = currentIndex;
+
   document.documentElement.classList.add("fullscreen");
 
   if (currentIndex == 0) {
     gallery.dataset.position = "first";
-  }
-  if (currentIndex == alsters.length - 1) {
+  } else if (currentIndex == alsters.length - 1) {
     gallery.dataset.position = "last";
+  } else {
+    gallery.dataset.position = "";
   }
 });
 
-// const light = document.getElementById("light");
-// light.addEventListener("click", e => {
-//   document.documentElement.classList.remove("fullscreen");
-// });
-
 gallery.querySelector(":scope > svg").addEventListener("click", e => {
   document.documentElement.classList.remove("fullscreen");
+  frame.querySelector("video")?.pause();
 });
 
 gallery.addEventListener("click", e => {
   const { target } = e;
+  const changeFrame = () => updateFrame(alsters[currentIndex].cloneNode());
   switch (target.dataset.target) {
     case "prev":
-      gallery.querySelector("div:nth-child(2) img").src =
-        alsters[currentIndex - 1].src;
-      gallery.querySelector("div:nth-child(2) img").srcset =
-        alsters[currentIndex - 1].srcset;
       currentIndex--;
+      changeFrame();
       if (currentIndex == 0) {
         gallery.dataset.position = "first";
       } else {
@@ -45,16 +50,13 @@ gallery.addEventListener("click", e => {
       }
       break;
     case "next":
-      gallery.querySelector("div:nth-child(2) img").src =
-        alsters[currentIndex + 1].src;
-      gallery.querySelector("div:nth-child(2) img").srcset =
-        alsters[currentIndex + 1].srcset;
       currentIndex++;
+      changeFrame();
       if (currentIndex == alsters.length - 1) {
         gallery.dataset.position = "last";
       } else {
         gallery.dataset.position = "";
       }
+      break;
   }
-  gallery.dataset.index = currentIndex;
 });
