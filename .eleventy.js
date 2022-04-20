@@ -18,6 +18,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./assets/fonts");
   eleventyConfig.addPassthroughCopy("./assets/svg/map-marker.svg");
   eleventyConfig.addPassthroughCopy("./assets/svg/sponsor-loggor");
+  eleventyConfig.addPassthroughCopy("./assets/svg/designexit-logo.svg");
   eleventyConfig.addPassthroughCopy("./assets/img");
   if (process.env.NODE_ENV !== "production") {
     eleventyConfig.addPassthroughCopy("./assets/alster");

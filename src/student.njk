@@ -53,7 +53,7 @@ alster = student.alster() %}
             {# socials #}
             {% for name, href in links %}
                 {% if href %}
-                    <a w:text="underline underline-1"  w:w="3ch" w:display="block" title="{{name}}"  href="{{ href }}">{{ icon.social(name) }}</a>
+                    <a target="_blank" w:text="underline underline-1"  w:w="3ch" w:display="block" title="{{name}}"  href="{{ href }}">{{ icon.social(name) }}</a>
                 {% endif %}
             {% endfor %}
         </ul>
