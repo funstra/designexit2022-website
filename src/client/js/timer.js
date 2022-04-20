@@ -1,7 +1,7 @@
 const deadline = document.querySelector(".timer-deadline");
 const timer = document.querySelectorAll(".timer-deadline-txt");
 
-let futureDate = new Date(2022,6,1,15,0,0);
+let futureDate = new Date(2022,5,1,15,0,0);
 
 const futureTime = futureDate.getTime();
 

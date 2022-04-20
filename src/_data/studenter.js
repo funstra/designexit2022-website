@@ -163,7 +163,7 @@ module.exports = () => {
       links: {
         linkedin: "",
         facebook: "",
-        instagram: "",
+        instagram: "https://www.instagram.com/berfinskapar/",
         dribbble: "",
         behance: "",
         flickr: "",
