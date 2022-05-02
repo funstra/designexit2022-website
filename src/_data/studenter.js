@@ -201,7 +201,7 @@ module.exports = () => {
         facebook: "",
         instagram: "https://www.instagram.com/amandasellbergdesign/",
         dribbble: "",
-        hemsida: "",
+        hemsida: "https://amandasellberg.com",
       },
       alster: function () {
         return alst(this);
