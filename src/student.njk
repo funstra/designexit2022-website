@@ -74,19 +74,19 @@ alster = student.alster() %}
             <h2>Portfolio</h2>
             <ul aria-hidden="true">
                 {% for alst in alster %}
-                    {% set isVideo = '.mov' in alst or '.mp4' in alst %}
+                    {% set isVideo = '.mov' in alst.path or '.mp4' in alst.path %}
                     <li  id="alster{{loop.index}}">
                         <div>
                             {% if isVideo %}
-                                <video controls w:cursor="pointer" src="/assets/{{alst}}" alt="Ett alster"></video>
+                                <video controls w:cursor="pointer" src="/assets/{{alst.path}}" {{'loop' if alst.loop else ''}} alt="Ett alster"></video>
                             {% else %}
                                 {% if build.env == 'production' %}
                                     {% image '',
-                                    alst,
+                                    alst.path,
                                     "Ett alster",
                                     studentSlug %}
                                 {% else %}
-                                    <img  src="/assets/{{ alst }}" alt="Ett alster"/>
+                                    <img  src="/assets/{{ alst.path }}" alt="Ett alster"/>
                                 {% endif %}
                             {% endif %}
                         </div>

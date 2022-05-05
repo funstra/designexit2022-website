@@ -7,7 +7,10 @@ function alst(student) {
   const files = readdirSync(resolve(dir, s));
   const alsterFiles = files
     .filter(f => f.includes("alster"))
-    .map(f => `alster/${s}/${f}`);
+    .map(f => `alster/${s}/${f}`)
+    .map(f => (f.includes("loop") ? { path: f, loop: true } : { path: f }));
+
+  console.log(alsterFiles);
   return alsterFiles;
 }
 // TODO add aria labels for alster
@@ -25,7 +28,7 @@ module.exports = () => {
         dribbble: "",
         behance: "",
         flickr: "",
-        hemsida: "",
+        hemsida: "https://m-aldrin.space",
       },
       alster: function () {
         return alst(this);
