@@ -43,7 +43,7 @@ module.exports = () => {
         dribbble: "",
         behance: "",
         flickr: "",
-        hemsida: "",
+        hemsida: "https://emmaarnberg.myportfolio.com/",
       },
       alster: function () {
         return alst(this);
