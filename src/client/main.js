@@ -6,6 +6,7 @@ import "./js/timer";
 
 if (location.pathname === "/") {
   import("./js/section-observer");
+  import("./js/artstepObserver")
 }
 const impMap = () => {
   if (location.hash === "#vernissage" || location.hash === "#vilka-ar-vi") {

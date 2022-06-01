@@ -23,7 +23,7 @@
             {# <p class="[ btn-info ] [ mt-1 hidden md:block ]">Startar 1 Juni 2022 kl 15:00</p> #}
         </article>
         <div class="[ vernissage-img ] [ h-[20rem] min-w-[50%] relative ]">
-            {% if build.env == 'production' %}
+            {# {% if build.env == 'production' %}
                 {% image 'img', 'digital-vernissage.jpg', 'Image of a part of the digital vernissage'%}
             {% else %}
                 <img 
@@ -31,8 +31,9 @@
                 src="/assets/img/digital-vernissage.jpg" 
                 alt="map of location"
             >
-            {% endif %}
-            <div class="[ timer ] [ text-primary-perm flex absolute inset-x-0 bottom-0 justify-center ]">
+            {% endif %} #}
+            <iframe id="artstep" loading="lazy" width="1280" height="720" src=""  frameborder="0" allowfullscreen></iframe>
+            {# <div class="[ timer ] [ text-primary-perm flex absolute inset-x-0 bottom-0 justify-center ]">
                 <div class="timer-deadline px-1" >
                     <p class="timer-deadline-txt">
                         <span></span></p>
@@ -46,7 +47,7 @@
                 <div class="timer-deadline px-1 md:px-3">
                     <p class="timer-deadline-txt">: <span></span></p>
                 </div>
-            </div>
+            </div> #}
             {# <p class="md:hidden" w:m="t-xs">Startar 1 Juni 2022 kl {{info.tid.from}}</p> #}
         </div>
     </div>
